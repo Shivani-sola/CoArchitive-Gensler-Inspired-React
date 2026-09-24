@@ -662,6 +662,8 @@ p { margin: 0; }
 
 .people-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
 .people-grid.three { grid-template-columns: repeat(3, 1fr); }
+/* all five in a single row; the tiles get narrow, so trim the gap */
+.people-grid.five { grid-template-columns: repeat(5, 1fr); gap: clamp(14px, 1.6vw, 26px); }
 .person-img {
   aspect-ratio: 3 / 4;
   background-size: cover;
@@ -876,6 +878,7 @@ p { margin: 0; }
   .hdr-nav { display: none; }
   .burger { display: grid; }
   .disc-grid, .people-grid, .people-grid.three, .values, .ftr-cols { grid-template-columns: repeat(2, 1fr); }
+  .people-grid.five { grid-template-columns: repeat(3, 1fr); }
   .feed, .feed.three { grid-template-columns: repeat(2, 1fr); }
   .card.wide { grid-column: span 2; }
 }
@@ -903,6 +906,7 @@ p { margin: 0; }
   .card.wide { grid-column: span 1; }
   .card.wide .card-img { aspect-ratio: 4 / 3; }
   .disc-grid, .people-grid, .people-grid.three, .values, .ftr-cols, .form { grid-template-columns: 1fr; }
+  .people-grid.five { grid-template-columns: repeat(2, 1fr); }
   .stats { grid-template-columns: 1fr; }
   .stats div { border-right: 0; border-bottom: 1px solid var(--line); padding-left: 0 !important; }
   .hero-foot span:last-child { display: none; }

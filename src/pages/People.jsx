@@ -33,19 +33,12 @@ export default function People() {
         img="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2200&q=80"
       />
 
+      {/* one row: directors first, then expert members. The designation under
+          each name carries the distinction, so they share a single line. */}
       <section className="sec">
-        <SectionHead kicker="Directors" title="Us" />
-        <div className="people-grid three">
-          {DIRECTORS.map((p) => (
-            <Person key={p.name} {...p} />
-          ))}
-        </div>
-      </section>
-
-      <section className="sec">
-        <SectionHead kicker="Our team" title="Expert members" />
-        <div className="people-grid three">
-          {TEAM.map((p) => (
+        <SectionHead kicker="Directors & team" title="Who we are" />
+        <div className="people-grid five">
+          {[...DIRECTORS, ...TEAM].map((p) => (
             <Person key={p.name} {...p} />
           ))}
         </div>
