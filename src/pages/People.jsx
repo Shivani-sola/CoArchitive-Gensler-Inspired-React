@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "../router.jsx";
-import { PageHero, SectionHead } from "../components/UI.jsx";
+import { SectionHead } from "../components/UI.jsx";
 import { DIRECTORS, TEAM, VALUES } from "../data.js";
 
 // Portrait stacks the real photo over a placeholder. If public/team/<slug>.jpg
@@ -23,11 +23,24 @@ function Person({ name, photo, fallback }) {
 export default function People() {
   return (
     <>
-      <PageHero
-        eyebrow="People"
-        title="Different expertise. Shared purpose."
-        lede="Designers, planners, engineers, analysts, researchers and technology specialists, organised around project goals rather than departments."
-      />
+      {/* copy on the left half, photograph filling the right half */}
+      <section className="hero-split">
+        <div className="hero-split-copy">
+          <span className="eyebrow">People</span>
+          <h1>Different expertise. Shared purpose.</h1>
+          <p>
+            Designers, planners, engineers, analysts, researchers and technology specialists,
+            organised around project goals rather than departments.
+          </p>
+        </div>
+        <div
+          className="hero-split-media"
+          style={{
+            backgroundImage:
+              "url(https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1800&q=80)",
+          }}
+        />
+      </section>
 
       <section className="sec">
         <SectionHead kicker="Directors" title="Us" />
