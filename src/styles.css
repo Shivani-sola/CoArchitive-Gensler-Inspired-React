@@ -670,8 +670,17 @@ p { margin: 0; }
   transition: filter 0.4s;
 }
 .person:hover .person-img { filter: none; }
-.person h3 { margin: 16px 0 0; font-size: clamp(18px, 1.7vw, 22px); }
-.person span { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+/* name and designation centred beneath the portrait */
+.person { text-align: center; }
+.person h3 { margin: 18px 0 6px; font-size: clamp(18px, 1.7vw, 22px); }
+.person span {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
 .values { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); margin-bottom: 44px; }
 .values h4 { font-size: 19px; margin-bottom: 10px; }

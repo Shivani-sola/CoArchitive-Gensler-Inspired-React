@@ -254,8 +254,8 @@ export const STATS = [
   ["∞", "Possibilities"],
 ];
 
-// People — names only, per brief. Qualifications and experience are
-// deliberately not shown.
+// People — name and designation only. Qualifications and work experience
+// from the brief are deliberately not shown.
 //
 // `photo` is a local file in public/team/. Drop the real portrait there and it
 // appears automatically; until then the placeholder below shows through (both
@@ -266,15 +266,18 @@ const portrait = (slug, fallbackId) => ({
   fallback: img(fallbackId, 900),
 });
 
+const DIRECTOR_ROLE = "Director of CoArchitive";
+const MEMBER_ROLE = "Expert Member";
+
 export const DIRECTORS = [
-  { name: "Aneesha Jayaram", ...portrait("aneesha-jayaram", "1573496359142-b8d87734a5a2") },
-  { name: "Shreedha Lanjewar", ...portrait("shreedha-lanjewar", "1580489944761-15a19d654956") },
-  { name: "Nakka Sunny", ...portrait("nakka-sunny", "1560250097-0b93528c311a") },
+  { name: "Aneesha Jayaram", role: DIRECTOR_ROLE, ...portrait("aneesha-jayaram", "1573496359142-b8d87734a5a2") },
+  { name: "Shreedha Lanjewar", role: DIRECTOR_ROLE, ...portrait("shreedha-lanjewar", "1580489944761-15a19d654956") },
+  { name: "Nakka Sunny", role: DIRECTOR_ROLE, ...portrait("nakka-sunny", "1560250097-0b93528c311a") },
 ];
 
 export const TEAM = [
-  { name: "Raksha Mundhada", ...portrait("raksha-mundhada", "1519085360753-af0119f7cbe7") },
-  { name: "Ajay Sarath", ...portrait("ajay-sarath", "1507003211169-0a1dd7228f2d") },
+  { name: "Raksha Mundhada", role: MEMBER_ROLE, ...portrait("raksha-mundhada", "1519085360753-af0119f7cbe7") },
+  { name: "Ajay Sarath", role: MEMBER_ROLE, ...portrait("ajay-sarath", "1507003211169-0a1dd7228f2d") },
 ];
 
 export const OFFICES = [

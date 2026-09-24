@@ -6,7 +6,7 @@ import { DIRECTORS, TEAM, VALUES } from "../data.js";
 
 // Portrait stacks the real photo over a placeholder. If public/team/<slug>.jpg
 // is missing the browser just paints the layer beneath it.
-function Person({ name, photo, fallback }) {
+function Person({ name, role, photo, fallback }) {
   return (
     <article className="person">
       <div
@@ -16,6 +16,7 @@ function Person({ name, photo, fallback }) {
         style={{ backgroundImage: `url(${photo}), url(${fallback})` }}
       />
       <h3>{name}</h3>
+      {role && <span>{role}</span>}
     </article>
   );
 }
