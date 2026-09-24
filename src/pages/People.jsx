@@ -2,7 +2,23 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "../router.jsx";
 import { PageHero, SectionHead } from "../components/UI.jsx";
-import { LEADERSHIP, VALUES } from "../data.js";
+import { DIRECTORS, TEAM, VALUES } from "../data.js";
+
+// Portrait stacks the real photo over a placeholder. If public/team/<slug>.jpg
+// is missing the browser just paints the layer beneath it.
+function Person({ name, photo, fallback }) {
+  return (
+    <article className="person">
+      <div
+        className="person-img"
+        role="img"
+        aria-label={name}
+        style={{ backgroundImage: `url(${photo}), url(${fallback})` }}
+      />
+      <h3>{name}</h3>
+    </article>
+  );
+}
 
 export default function People() {
   return (
@@ -14,14 +30,19 @@ export default function People() {
       />
 
       <section className="sec">
-        <SectionHead kicker="Leadership" title="Who leads the work" />
-        <div className="people-grid">
-          {LEADERSHIP.map((p) => (
-            <article key={p.role} className="person">
-              <div className="person-img" style={{ backgroundImage: `url(${p.img})` }} />
-              <h3>{p.name}</h3>
-              <span>{p.role}</span>
-            </article>
+        <SectionHead kicker="Directors" title="Us" />
+        <div className="people-grid three">
+          {DIRECTORS.map((p) => (
+            <Person key={p.name} {...p} />
+          ))}
+        </div>
+      </section>
+
+      <section className="sec">
+        <SectionHead kicker="Our team" title="Expert members" />
+        <div className="people-grid three">
+          {TEAM.map((p) => (
+            <Person key={p.name} {...p} />
           ))}
         </div>
       </section>

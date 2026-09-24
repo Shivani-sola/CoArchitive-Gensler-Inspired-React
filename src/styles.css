@@ -648,6 +648,7 @@ p { margin: 0; }
 /* ---------- people ---------- */
 
 .people-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+.people-grid.three { grid-template-columns: repeat(3, 1fr); }
 .person-img {
   aspect-ratio: 3 / 4;
   background-size: cover;
@@ -656,7 +657,7 @@ p { margin: 0; }
   transition: filter 0.4s;
 }
 .person:hover .person-img { filter: none; }
-.person h3 { margin: 16px 0 6px; font-size: 19px; }
+.person h3 { margin: 16px 0 0; font-size: clamp(18px, 1.7vw, 22px); }
 .person span { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 
 .values { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); margin-bottom: 44px; }
@@ -852,7 +853,7 @@ p { margin: 0; }
 @media (max-width: 1180px) {
   .hdr-nav { display: none; }
   .burger { display: grid; }
-  .disc-grid, .people-grid, .values, .ftr-cols { grid-template-columns: repeat(2, 1fr); }
+  .disc-grid, .people-grid, .people-grid.three, .values, .ftr-cols { grid-template-columns: repeat(2, 1fr); }
   .feed, .feed.three { grid-template-columns: repeat(2, 1fr); }
   .card.wide { grid-column: span 2; }
 }
@@ -878,7 +879,7 @@ p { margin: 0; }
   .feed, .feed.three { grid-template-columns: 1fr; }
   .card.wide { grid-column: span 1; }
   .card.wide .card-img { aspect-ratio: 4 / 3; }
-  .disc-grid, .people-grid, .values, .ftr-cols, .form { grid-template-columns: 1fr; }
+  .disc-grid, .people-grid, .people-grid.three, .values, .ftr-cols, .form { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr; }
   .stats div { border-right: 0; border-bottom: 1px solid var(--line); padding-left: 0 !important; }
   .hero-foot span:last-child { display: none; }
