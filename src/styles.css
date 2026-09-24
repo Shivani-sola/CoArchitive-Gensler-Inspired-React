@@ -645,6 +645,71 @@ p { margin: 0; }
 }
 .prose { display: grid; gap: 22px; max-width: 60ch; font-size: clamp(15px, 1.2vw, 18px); line-height: 1.66; color: #3a3b39; }
 
+/* ---------- split hero: copy left, media on the right half ---------- */
+
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  min-height: min(76vh, 720px);
+}
+.hero-split-copy { padding: clamp(40px, 5vw, 80px) clamp(28px, 4vw, 64px) clamp(40px, 5vw, 80px) var(--pad); }
+.hero-split-copy h1 {
+  margin: 16px 0 22px;
+  font-size: clamp(34px, 4.6vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+.hero-split-copy p {
+  max-width: 46ch;
+  font-size: clamp(15px, 1.25vw, 19px);
+  line-height: 1.55;
+  color: var(--muted);
+}
+/* media runs to the top, bottom and right edge of the band */
+.hero-split-media { align-self: stretch; position: relative; min-height: 360px; }
+
+.reel { position: absolute; inset: 0; overflow: hidden; background: var(--grey); }
+.reel-shot,
+.reel-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+.reel-shot { opacity: 0; transition: opacity 1.1s ease-in-out; }
+.reel-shot.on { opacity: 1; animation: pushin 7s ease-out forwards; }
+@keyframes pushin { from { transform: scale(1); } to { transform: scale(1.07); } }
+
+.reel-video { z-index: 1; }
+.reel-video.gone { display: none; }
+
+.reel-btn {
+  position: absolute;
+  z-index: 2;
+  right: 18px;
+  bottom: 18px;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(12, 14, 9, 0.35);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.reel-btn:hover { background: var(--accent); border-color: var(--accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reel-shot { transition: none; }
+  .reel-shot:first-child { opacity: 1; }
+}
+
 /* ---------- people ---------- */
 
 .people-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
@@ -872,6 +937,9 @@ p { margin: 0; }
   .role { grid-template-columns: 1fr auto; row-gap: 8px; }
   .role span:nth-of-type(2), .role span:nth-of-type(3) { display: none; }
   .hero-foot span:nth-child(2) { display: none; }
+  .hero-split { grid-template-columns: 1fr; min-height: 0; }
+  .hero-split-copy { padding: clamp(50px, 8vw, 80px) var(--pad) clamp(30px, 5vw, 50px); }
+  .hero-split-media { height: 58vw; min-height: 300px; }
 }
 
 @media (max-width: 620px) {
