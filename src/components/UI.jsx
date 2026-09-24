@@ -2,9 +2,10 @@ import React from "react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "../router.jsx";
 
-export function PageHero({ eyebrow, title, lede, img }) {
+// `half` pins the band to half the viewport height; otherwise it runs taller.
+export function PageHero({ eyebrow, title, lede, img, half }) {
   return (
-    <section className={img ? "phero has-img" : "phero"}>
+    <section className={img ? `phero has-img${half ? " half" : ""}` : "phero"}>
       {img && (
         <>
           <div className="phero-img" style={{ backgroundImage: `url(${img})` }} />

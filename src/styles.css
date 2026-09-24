@@ -340,6 +340,19 @@ p { margin: 0; }
   background: linear-gradient(to top, rgba(10, 11, 10, 0.85), rgba(10, 11, 10, 0.15) 70%);
 }
 .phero.has-img .phero-body { position: relative; }
+
+/* half-height variant: the band fills half the viewport and carries the copy.
+   Shorter band means less runway for the gradient, so the scrim is lifted a
+   little to keep the white text legible over a bright photograph. */
+.phero.has-img.half {
+  min-height: 50vh;
+  max-height: 620px;
+  padding-top: clamp(40px, 6vw, 80px);
+}
+.phero.has-img.half .phero-scrim {
+  background: linear-gradient(to top, rgba(10, 11, 10, 0.9), rgba(10, 11, 10, 0.45) 62%, rgba(10, 11, 10, 0.3));
+}
+.phero.has-img.half h1 { font-size: clamp(32px, 4.6vw, 68px); }
 .phero.has-img p { color: rgba(255, 255, 255, 0.85); }
 
 /* ---------- intro: statement + field grid ---------- */
@@ -645,17 +658,6 @@ p { margin: 0; }
 }
 .prose { display: grid; gap: 22px; max-width: 60ch; font-size: clamp(15px, 1.2vw, 18px); line-height: 1.66; color: #3a3b39; }
 
-/* ---------- full-width horizontal image band ---------- */
-
-.hero-strip {
-  height: 50vh;
-  min-height: 320px;
-  max-height: 620px;
-  background-size: cover;
-  background-position: center;
-  background-color: var(--grey);
-}
-
 /* ---------- people ---------- */
 
 .people-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
@@ -883,7 +885,7 @@ p { margin: 0; }
   .role { grid-template-columns: 1fr auto; row-gap: 8px; }
   .role span:nth-of-type(2), .role span:nth-of-type(3) { display: none; }
   .hero-foot span:nth-child(2) { display: none; }
-  .hero-strip { height: 42vh; min-height: 240px; }
+  .phero.has-img.half { min-height: 58vh; }
 }
 
 @media (max-width: 620px) {
