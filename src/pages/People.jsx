@@ -1,8 +1,7 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "../router.jsx";
-import { SectionHead } from "../components/UI.jsx";
-import DirectorReel from "../components/DirectorReel.jsx";
+import { PageHero, SectionHead } from "../components/UI.jsx";
 import { DIRECTORS, TEAM, VALUES } from "../data.js";
 
 // Portrait stacks the real photo over a placeholder. If public/team/<slug>.jpg
@@ -24,19 +23,11 @@ function Person({ name, photo, fallback }) {
 export default function People() {
   return (
     <>
-      <section className="hero-split">
-        <div className="hero-split-copy">
-          <span className="eyebrow">People</span>
-          <h1>Different expertise. Shared purpose.</h1>
-          <p>
-            Designers, planners, engineers, analysts, researchers and technology specialists,
-            organised around project goals rather than departments.
-          </p>
-        </div>
-        <div className="hero-split-media">
-          <DirectorReel src="/media/directors.mp4" people={DIRECTORS} />
-        </div>
-      </section>
+      <PageHero
+        eyebrow="People"
+        title="Different expertise. Shared purpose."
+        lede="Designers, planners, engineers, analysts, researchers and technology specialists, organised around project goals rather than departments."
+      />
 
       <section className="sec">
         <SectionHead kicker="Directors" title="Us" />
