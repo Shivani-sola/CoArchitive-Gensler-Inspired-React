@@ -341,14 +341,16 @@ p { margin: 0; }
 }
 .phero.has-img .phero-body { position: relative; }
 
-/* half-height variant: the band fills half the viewport and carries the copy.
-   Shorter band means less runway for the gradient, so the scrim is lifted a
-   little to keep the white text legible over a bright photograph. */
+/* Banner variant: shorter than a full hero but still tall enough for the
+   photograph to read. Less runway for the gradient than a full hero, so the
+   scrim is lifted to keep white text legible over a bright image. */
 .phero.has-img.half {
-  min-height: 50vh;
-  max-height: 620px;
+  min-height: 72vh;
+  max-height: 840px;
   padding-top: clamp(40px, 6vw, 80px);
 }
+/* the green eyebrow disappears against a dark photograph */
+.phero.has-img .eyebrow { color: #fff; }
 .phero.has-img.half .phero-scrim {
   background: linear-gradient(to top, rgba(10, 11, 10, 0.9), rgba(10, 11, 10, 0.45) 62%, rgba(10, 11, 10, 0.3));
 }
@@ -897,7 +899,7 @@ p { margin: 0; }
   .role { grid-template-columns: 1fr auto; row-gap: 8px; }
   .role span:nth-of-type(2), .role span:nth-of-type(3) { display: none; }
   .hero-foot span:nth-child(2) { display: none; }
-  .phero.has-img.half { min-height: 58vh; }
+  .phero.has-img.half { min-height: 62vh; }
 }
 
 @media (max-width: 620px) {
