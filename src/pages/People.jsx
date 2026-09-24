@@ -51,9 +51,6 @@ export default function People() {
       <VideoBand
         src="/media/team-coffee.mp4"
         poster="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=2000&q=80"
-        eyebrow="Life at the studio"
-        title="Most of it starts over coffee."
-        body="The useful conversations rarely happen in a review meeting. They happen sideways — someone puts a drawing on the table, someone else pulls up a survey, and the problem moves."
       />
 
       <section className="sec grey">

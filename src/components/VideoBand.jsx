@@ -37,8 +37,12 @@ export default function VideoBand({ src, poster, eyebrow, title, body }) {
     }
   };
 
+  // Text is optional — with none, the band is purely visual and the scrim
+  // stays light, since it is no longer there to keep copy readable.
+  const hasText = Boolean(eyebrow || title || body);
+
   return (
-    <section className="vband">
+    <section className={hasText ? "vband" : "vband bare"}>
       <div className="vband-media">
         <img className="vband-poster" src={poster} alt="" />
         <video
@@ -57,11 +61,13 @@ export default function VideoBand({ src, poster, eyebrow, title, body }) {
         <div className="vband-scrim" />
       </div>
 
-      <div className="vband-body">
-        <span className="eyebrow light">{eyebrow}</span>
-        <h2>{title}</h2>
-        <p>{body}</p>
-      </div>
+      {hasText && (
+        <div className="vband-body">
+          {eyebrow && <span className="eyebrow light">{eyebrow}</span>}
+          {title && <h2>{title}</h2>}
+          {body && <p>{body}</p>}
+        </div>
+      )}
 
       {hasVideo && (
         <button className="vband-btn" onClick={toggle} aria-label={playing ? "Pause video" : "Play video"}>

@@ -677,6 +677,11 @@ p { margin: 0; }
     linear-gradient(to top, rgba(12, 14, 9, 0.9), rgba(12, 14, 9, 0.15) 58%),
     linear-gradient(to right, rgba(12, 14, 9, 0.6), transparent 62%);
 }
+/* no copy over the image — drop the heavy gradient and the bottom padding */
+.vband.bare { padding: 0; }
+.vband.bare .vband-scrim { background: rgba(12, 14, 9, 0.06); }
+.vband.bare .vband-btn { bottom: 24px; }
+
 .vband-body { position: relative; z-index: 3; max-width: 760px; }
 .vband-body h2 {
   margin: 16px 0 18px;
