@@ -2,7 +2,6 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "../router.jsx";
 import { PageHero, SectionHead } from "../components/UI.jsx";
-import VideoBand from "../components/VideoBand.jsx";
 import { DIRECTORS, TEAM, VALUES } from "../data.js";
 
 // Portrait stacks the real photo over a placeholder. If public/team/<slug>.jpg
@@ -47,11 +46,6 @@ export default function People() {
           ))}
         </div>
       </section>
-
-      <VideoBand
-        src="/media/team-coffee.mp4"
-        poster="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=2000&q=80"
-      />
 
       <section className="sec grey">
         <SectionHead kicker="How we work" title="Four things we hold to" />
