@@ -2,26 +2,44 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "../router.jsx";
 import { PageHero, SectionHead } from "../components/UI.jsx";
-import { LEADERSHIP, VALUES } from "../data.js";
+import { DIRECTORS, TEAM, VALUES } from "../data.js";
+
+// Portrait stacks the real photo over a placeholder. If public/team/<slug>.jpg
+// is missing the browser just paints the layer beneath it.
+function Person({ name, role, photo, fallback }) {
+  return (
+    <article className="person">
+      <div
+        className="person-img"
+        role="img"
+        aria-label={name}
+        style={{ backgroundImage: `url(${photo}), url(${fallback})` }}
+      />
+      <h3>{name}</h3>
+      {role && <span>{role}</span>}
+    </article>
+  );
+}
 
 export default function People() {
   return (
     <>
+      {/* half-height band, copy sitting on the image */}
       <PageHero
+        half
         eyebrow="People"
         title="Different expertise. Shared purpose."
         lede="Designers, planners, engineers, analysts, researchers and technology specialists, organised around project goals rather than departments."
+        img="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2200&q=80"
       />
 
+      {/* one row: directors first, then expert members. The designation under
+          each name carries the distinction, so they share a single line. */}
       <section className="sec">
-        <SectionHead kicker="Leadership" title="Who leads the work" />
-        <div className="people-grid">
-          {LEADERSHIP.map((p) => (
-            <article key={p.role} className="person">
-              <div className="person-img" style={{ backgroundImage: `url(${p.img})` }} />
-              <h3>{p.name}</h3>
-              <span>{p.role}</span>
-            </article>
+        <SectionHead kicker="Directors & team" title="Who we are" />
+        <div className="people-grid five">
+          {[...DIRECTORS, ...TEAM].map((p) => (
+            <Person key={p.name} {...p} />
           ))}
         </div>
       </section>

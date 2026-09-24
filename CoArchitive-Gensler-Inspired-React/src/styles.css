@@ -340,6 +340,21 @@ p { margin: 0; }
   background: linear-gradient(to top, rgba(10, 11, 10, 0.85), rgba(10, 11, 10, 0.15) 70%);
 }
 .phero.has-img .phero-body { position: relative; }
+
+/* Banner variant: shorter than a full hero but still tall enough for the
+   photograph to read. Less runway for the gradient than a full hero, so the
+   scrim is lifted to keep white text legible over a bright image. */
+.phero.has-img.half {
+  min-height: 72vh;
+  max-height: 840px;
+  padding-top: clamp(40px, 6vw, 80px);
+}
+/* the green eyebrow disappears against a dark photograph */
+.phero.has-img .eyebrow { color: #fff; }
+.phero.has-img.half .phero-scrim {
+  background: linear-gradient(to top, rgba(10, 11, 10, 0.9), rgba(10, 11, 10, 0.45) 62%, rgba(10, 11, 10, 0.3));
+}
+.phero.has-img.half h1 { font-size: clamp(32px, 4.6vw, 68px); }
 .phero.has-img p { color: rgba(255, 255, 255, 0.85); }
 
 /* ---------- intro: statement + field grid ---------- */
@@ -648,6 +663,9 @@ p { margin: 0; }
 /* ---------- people ---------- */
 
 .people-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+.people-grid.three { grid-template-columns: repeat(3, 1fr); }
+/* all five in a single row; the tiles get narrow, so trim the gap */
+.people-grid.five { grid-template-columns: repeat(5, 1fr); gap: clamp(14px, 1.6vw, 26px); }
 .person-img {
   aspect-ratio: 3 / 4;
   background-size: cover;
@@ -656,8 +674,17 @@ p { margin: 0; }
   transition: filter 0.4s;
 }
 .person:hover .person-img { filter: none; }
-.person h3 { margin: 16px 0 6px; font-size: 19px; }
-.person span { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+/* name and designation centred beneath the portrait */
+.person { text-align: center; }
+.person h3 { margin: 18px 0 6px; font-size: clamp(18px, 1.7vw, 22px); }
+.person span {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
 .values { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); margin-bottom: 44px; }
 .values h4 { font-size: 19px; margin-bottom: 10px; }
@@ -852,7 +879,8 @@ p { margin: 0; }
 @media (max-width: 1180px) {
   .hdr-nav { display: none; }
   .burger { display: grid; }
-  .disc-grid, .people-grid, .values, .ftr-cols { grid-template-columns: repeat(2, 1fr); }
+  .disc-grid, .people-grid, .people-grid.three, .values, .ftr-cols { grid-template-columns: repeat(2, 1fr); }
+  .people-grid.five { grid-template-columns: repeat(3, 1fr); }
   .feed, .feed.three { grid-template-columns: repeat(2, 1fr); }
   .card.wide { grid-column: span 2; }
 }
@@ -871,6 +899,7 @@ p { margin: 0; }
   .role { grid-template-columns: 1fr auto; row-gap: 8px; }
   .role span:nth-of-type(2), .role span:nth-of-type(3) { display: none; }
   .hero-foot span:nth-child(2) { display: none; }
+  .phero.has-img.half { min-height: 62vh; }
 }
 
 @media (max-width: 620px) {
@@ -878,7 +907,8 @@ p { margin: 0; }
   .feed, .feed.three { grid-template-columns: 1fr; }
   .card.wide { grid-column: span 1; }
   .card.wide .card-img { aspect-ratio: 4 / 3; }
-  .disc-grid, .people-grid, .values, .ftr-cols, .form { grid-template-columns: 1fr; }
+  .disc-grid, .people-grid, .people-grid.three, .values, .ftr-cols, .form { grid-template-columns: 1fr; }
+  .people-grid.five { grid-template-columns: repeat(2, 1fr); }
   .stats { grid-template-columns: 1fr; }
   .stats div { border-right: 0; border-bottom: 1px solid var(--line); padding-left: 0 !important; }
   .hero-foot span:last-child { display: none; }
