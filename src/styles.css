@@ -645,6 +645,74 @@ p { margin: 0; }
 }
 .prose { display: grid; gap: 22px; max-width: 60ch; font-size: clamp(15px, 1.2vw, 18px); line-height: 1.66; color: #3a3b39; }
 
+/* ---------- video band ---------- */
+
+.vband {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: min(78vh, 760px);
+  padding: 0 var(--pad) clamp(46px, 6vw, 84px);
+  color: #fff;
+  overflow: hidden;
+  background: var(--dark);
+}
+.vband-media { position: absolute; inset: 0; }
+.vband-poster,
+.vband-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* the video sits over the poster; if the file is missing the poster shows */
+.vband-video { z-index: 1; }
+.vband-video.gone { display: none; }
+.vband-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(to top, rgba(12, 14, 9, 0.9), rgba(12, 14, 9, 0.15) 58%),
+    linear-gradient(to right, rgba(12, 14, 9, 0.6), transparent 62%);
+}
+.vband-body { position: relative; z-index: 3; max-width: 760px; }
+.vband-body h2 {
+  margin: 16px 0 18px;
+  font-size: clamp(28px, 4.4vw, 62px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.vband-body p {
+  max-width: 54ch;
+  font-size: clamp(15px, 1.25vw, 19px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+}
+.vband-btn {
+  position: absolute;
+  right: var(--pad);
+  bottom: clamp(46px, 6vw, 84px);
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(12, 14, 9, 0.35);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.vband-btn:hover { background: var(--accent); border-color: var(--accent); }
+
 /* ---------- people ---------- */
 
 .people-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
@@ -872,6 +940,8 @@ p { margin: 0; }
   .role { grid-template-columns: 1fr auto; row-gap: 8px; }
   .role span:nth-of-type(2), .role span:nth-of-type(3) { display: none; }
   .hero-foot span:nth-child(2) { display: none; }
+  .vband { min-height: 70vh; }
+  .vband-btn { bottom: auto; top: 24px; right: 20px; }
 }
 
 @media (max-width: 620px) {
