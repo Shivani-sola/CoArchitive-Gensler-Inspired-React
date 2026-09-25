@@ -24,7 +24,7 @@ export function navigate(to) {
   window.location.hash = "/" + to;
 }
 
-export function Link({ to, children, className, onClick }) {
+export function Link({ to, children, className, onClick, ...rest }) {
   const handle = useCallback(
     (e) => {
       e.preventDefault();
@@ -36,7 +36,7 @@ export function Link({ to, children, className, onClick }) {
   );
 
   return (
-    <a href={"#/" + to} className={className} onClick={handle}>
+    <a href={"#/" + to} className={className} onClick={handle} {...rest}>
       {children}
     </a>
   );

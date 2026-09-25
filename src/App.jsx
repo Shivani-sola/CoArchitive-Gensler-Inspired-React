@@ -34,7 +34,7 @@ export default function App() {
       <main key={route} className="main">
         <Page />
       </main>
-      <Footer />
+      <Footer showCta={Page !== Home} />
     </div>
   );
 }
