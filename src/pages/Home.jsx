@@ -1,8 +1,8 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "../router.jsx";
 import { Card, SectionHead, Stats } from "../components/UI.jsx";
-import { FEATURE, FIELDS, INTRO_FIGURE, PROJECTS, INSIGHTS, EXPERTISE, STATS } from "../data.js";
+import { FEATURE, FIELDS, PROJECTS, INSIGHTS, EXPERTISE, STATS } from "../data.js";
 
 export default function Home() {
   return (
@@ -26,14 +26,12 @@ export default function Home() {
       </section>
 
       <section className="intro">
-        <div className="intro-top">
-          <div className="intro-copy">
-            <span className="eyebrow">Who we are</span>
-            <h2 className="intro-statement">
-              CoArchitive is a <em>multidisciplinary</em> consultancy and technology practice.
-            </h2>
-          </div>
-          <div className="intro-aside">
+        <div className="intro-copy">
+          <span className="eyebrow">Who we are</span>
+          <h2 className="intro-statement">
+            CoArchitive is a <em>multidisciplinary</em> consultancy and technology practice.
+          </h2>
+          <div className="intro-foot">
             <p>
               Seven connected fields, one team. Most of our work sits where several of them meet —
               which is usually where a single-discipline answer falls short.
@@ -42,25 +40,15 @@ export default function Home() {
               Discover CoArchitive <ArrowRight size={16} />
             </Link>
           </div>
-          <div className="intro-figure" style={{ backgroundImage: `url(${INTRO_FIGURE})` }} />
         </div>
 
-        {/* image cards — photo, number, field, reveal arrow */}
         <ul className="fields">
           {FIELDS.map((f, i) => (
-            <li key={f.name}>
+            <li key={f}>
               <Link to="expertise">
-                <span className="field-img" style={{ backgroundImage: `url(${f.img})` }} />
-                <span className="field-veil" />
-                <span className="field-body">
-                  <span>
-                    <span className="field-no">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="field-name">{f.name}</span>
-                  </span>
-                  <span className="field-go">
-                    <ArrowRight size={16} />
-                  </span>
-                </span>
+                <span className="field-no">{String(i + 1).padStart(2, "0")}</span>
+                <span className="field-name">{f}</span>
+                <ArrowUpRight size={18} />
               </Link>
             </li>
           ))}
