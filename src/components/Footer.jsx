@@ -4,11 +4,12 @@ import { Link } from "../router.jsx";
 import Logo from "./Logo.jsx";
 import { NAV, TAGLINE, COMPANY, CONTACT, HEAD_OFFICE } from "../data.js";
 
-export default function Footer() {
+// The home page ends on its own call to action, so it hides this one.
+export default function Footer({ showCta = true }) {
   return (
     <footer className="ftr">
-      <div className="ftr-top">
-        <div className="ftr-cta">
+      <div className={showCta ? "ftr-top" : "ftr-top solo"}>
+        {showCta && <div className="ftr-cta">
           <h2>
             Have a complex challenge?
             <br />
@@ -17,7 +18,7 @@ export default function Footer() {
           <Link to="contact" className="btn-lg">
             Start a conversation <ArrowRight size={18} />
           </Link>
-        </div>
+        </div>}
 
         <form className="ftr-news" onSubmit={(e) => e.preventDefault()}>
           <label htmlFor="news">Sign up for our newsletter</label>

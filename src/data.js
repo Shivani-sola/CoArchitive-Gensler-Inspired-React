@@ -266,7 +266,7 @@ const portrait = (slug, fallbackId) => ({
   fallback: img(fallbackId, 900),
 });
 
-const DIRECTOR_ROLE = "Director of CoArchitive";
+const DIRECTOR_ROLE = "Director";
 const MEMBER_ROLE = "Expert Member";
 
 export const DIRECTORS = [
@@ -304,6 +304,119 @@ export const ROLES = [
   { title: "Full-Stack Engineer", team: "Digital & AI Solutions", type: "Full-time", loc: "Hybrid" },
   { title: "Research Associate", team: "Research & Advisory", type: "Contract", loc: "India" },
 ];
+
+// ---------------------------------------------------------------------------
+// Home page storytelling content.
+// PLACEHOLDER: client names, figures, testimonials and FAQ answers below are
+// dummy content written to show the layout. Replace them with verified
+// material before launch — none of these organisations or quotes are real.
+// ---------------------------------------------------------------------------
+
+export const HOME = {
+  heroWords: ["system", "region", "network", "city"],
+
+  clients: [
+    "Northfield Development Authority",
+    "Deccan Transit Partners",
+    "Riverbend Municipal Council",
+    "Kestrel Infrastructure",
+    "Meridian Housing Trust",
+    "Saffron Grid Energy",
+    "Lakeside Smart City Ltd.",
+  ],
+
+  problem:
+    // *word* is set in the italic accent face
+    "Most places are planned in *pieces.* Roads by one team, land by another, data by a third — and the gaps between them are where good projects quietly *fail.*",
+
+  // tiles that scatter, then settle into one plan as the section scrolls
+  fragments: [
+    { label: "Architecture", x: -260, y: -170, r: -14 },
+    { label: "Planning", x: 220, y: -210, r: 10 },
+    { label: "Mobility", x: -300, y: 120, r: 8 },
+    { label: "Environment", x: 280, y: 150, r: -9 },
+    { label: "Geospatial", x: -90, y: 260, r: 16 },
+    { label: "Digital & AI", x: 130, y: -300, r: -6 },
+  ],
+
+  steps: [
+    {
+      no: "01",
+      title: "Understand the place",
+      body: "Field surveys, stakeholder sessions and spatial data are gathered into one shared evidence base before anything is drawn.",
+      img: img("1451187580459-43490279c0fa", 1400),
+    },
+    {
+      no: "02",
+      title: "Integrate the disciplines",
+      body: "Planners, architects, engineers and analysts work from the same model, so trade-offs surface early instead of on site.",
+      img: img("1497366754035-f200968a6e72", 1400),
+    },
+    {
+      no: "03",
+      title: "Design the system",
+      body: "Land use, movement, water and buildings are designed together, then tested against scenarios for the next twenty years.",
+      img: img("1477959858617-67f85cf4f1df", 1400),
+    },
+    {
+      no: "04",
+      title: "Deliver and keep it running",
+      body: "Phased delivery plans, working drawings and live digital tools that the client’s own team keeps using after handover.",
+      img: img("1519501025264-65ba15a82390", 1400),
+    },
+  ],
+
+  results: [
+    { to: 46, label: "Projects delivered" },
+    { to: 14, label: "Cities & districts planned" },
+    { to: 3.2, decimals: 1, suffix: "M", label: "Residents in planned areas" },
+    { to: 8, label: "Disciplines, one team" },
+  ],
+
+  testimonials: [
+    {
+      quote:
+        "For the first time our transport, land-use and utilities teams were looking at the same plan. Decisions that used to take a quarter took a fortnight.",
+      name: "Planning Commissioner",
+      org: "Northfield Development Authority",
+    },
+    {
+      quote:
+        "They didn’t hand us a report and leave. The spatial platform is still the first thing our engineers open every morning.",
+      name: "Chief Engineer",
+      org: "Riverbend Municipal Council",
+    },
+    {
+      quote:
+        "Architecture and infrastructure arrived as one proposal, already reconciled. That saved us a full redesign cycle.",
+      name: "Head of Development",
+      org: "Meridian Housing Trust",
+    },
+  ],
+
+  faq: [
+    [
+      "What kinds of clients do you work with?",
+      "Public authorities, municipal bodies, developers, infrastructure operators and institutions — anyone responsible for a place that has to work for decades.",
+    ],
+    [
+      "Do we have to engage every discipline?",
+      "No. Many projects start with one service, such as a GIS study or a building design. We bring in other disciplines only where they change the outcome.",
+    ],
+    [
+      "How does a project usually start?",
+      "With a short scoping conversation, then a paid discovery phase that sets the evidence base, scope and delivery plan before full commitment.",
+    ],
+    [
+      "Can you build software for our team?",
+      "Yes. Our digital team builds decision-support tools, dashboards and digital twins on top of the same data used in the planning work.",
+    ],
+    [
+      "Where do you work?",
+      "Our head office is in Telangana. We set up project offices close to the work for the duration of an engagement.",
+    ],
+  ],
+};
 
 export const VALUES = [
   ["Integrated by default", "Teams are formed around the problem, not around a department chart."],

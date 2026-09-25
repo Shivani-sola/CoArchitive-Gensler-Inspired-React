@@ -21,6 +21,24 @@ function Person({ name, role, photo, fallback }) {
   );
 }
 
+function PeopleGroup({ index, label, blurb, people, children }) {
+  return (
+    <div className="people-group">
+      <header className="people-group-head">
+        <span className="people-group-index">{index}</span>
+        <h3>{label}</h3>
+        <p>{blurb}</p>
+      </header>
+      <div className="people-grid three">
+        {people.map((p) => (
+          <Person key={p.name} {...p} />
+        ))}
+        {children}
+      </div>
+    </div>
+  );
+}
+
 export default function People() {
   return (
     <>
@@ -33,15 +51,30 @@ export default function People() {
         img="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2200&q=80"
       />
 
-      {/* one row: directors first, then expert members. The designation under
-          each name carries the distinction, so they share a single line. */}
+      {/* two groups on the same three-column grid, so the team portraits line
+          up under the directors. The spare team slot invites the next hire. */}
       <section className="sec">
         <SectionHead kicker="Directors & team" title="Who we are" />
-        <div className="people-grid five">
-          {[...DIRECTORS, ...TEAM].map((p) => (
-            <Person key={p.name} {...p} />
-          ))}
-        </div>
+        <PeopleGroup
+          index="01"
+          label="Directors"
+          blurb="Setting the direction of the practice and leading every engagement."
+          people={DIRECTORS}
+        />
+        <PeopleGroup
+          index="02"
+          label="Team"
+          blurb="Specialists who carry the work from first brief to delivery."
+          people={TEAM}
+        >
+          <Link to="careers" className="person-join">
+            <span className="eyebrow">Careers</span>
+            <strong>Your place could be here.</strong>
+            <em>
+              See open roles <ArrowRight size={15} />
+            </em>
+          </Link>
+        </PeopleGroup>
       </section>
 
       <section className="sec grey">

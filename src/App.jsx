@@ -31,10 +31,10 @@ export default function App() {
   return (
     <div className="site">
       <Header route={route} />
-      <main key={route} className="main">
+      <main key={route} className={Page === Home ? "main is-home" : "main"}>
         <Page />
       </main>
-      <Footer />
+      <Footer showCta={Page !== Home} />
     </div>
   );
 }
