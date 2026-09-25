@@ -552,6 +552,9 @@
   position: sticky;
   top: 0;
   height: 100vh;
+  /* svh ignores the collapsing mobile URL bar, so the pinned stage cannot jump
+     mid-scroll — same fallback pair as .h-sticky and .h-hero. */
+  height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
