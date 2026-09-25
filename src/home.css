@@ -828,10 +828,12 @@
   .h-clients { grid-template-columns: 1fr; padding-right: 0; }
   .h-clients p { max-width: none; padding-right: var(--pad); }
 
-  .h-shift { --k: 0.42; height: 240vh; }
+  /* same clipping as the 620 block, milder: a 480px board leaves the outer
+     columns too close to the edge for a 0.42 scatter */
+  .h-shift { --k: 0.22; height: 240vh; }
   .h-shift-stage { grid-template-columns: 1fr; align-content: center; gap: 44px; }
   .h-shift-copy p { display: none; }
-  .h-shift-board { max-width: 480px; }
+  .h-shift-board { max-width: 420px; }
 
   .h-steps-grid { grid-template-columns: 1fr; }
   .h-steps-media { display: none; }
@@ -873,9 +875,15 @@
   .h-float-a { left: -12px; }
   .h-float-b { display: none; }
 
-  .h-shift { --k: 0.34; }
+  /* The tiles scatter by up to 300px before locking into the grid. At k=0.34
+     that threw the right-hand column past the screen edge, where the stage's
+     overflow:hidden clipped it — so only four of the six were ever visible.
+     Narrowing the board buys margin for the scatter, and a smaller k keeps
+     every tile inside the viewport for the whole scroll. */
+  .h-shift { --k: 0.12; }
+  .h-shift-board { max-width: min(300px, 72vw); }
   .h-shift-copy h2 { font-size: 36px; }
-  .h-tile { aspect-ratio: 1; font-size: 13px; }
+  .h-tile { aspect-ratio: 1; font-size: 12px; padding: 10px; }
 
   .h-caps-grid { grid-template-columns: 1fr; }
   .h-dcard { min-height: 200px; }
