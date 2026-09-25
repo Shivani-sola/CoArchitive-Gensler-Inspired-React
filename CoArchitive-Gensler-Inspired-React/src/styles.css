@@ -357,76 +357,71 @@ p { margin: 0; }
 .phero.has-img.half h1 { font-size: clamp(32px, 4.6vw, 68px); }
 .phero.has-img p { color: rgba(255, 255, 255, 0.85); }
 
-/* ---------- intro: statement + field grid ---------- */
+/* ---------- intro: serif statement + numbered field list ---------- */
 
 .intro {
-  padding: clamp(56px, 7vw, 110px) var(--pad);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(36px, 6vw, 110px);
+  padding: clamp(60px, 8vw, 130px) var(--pad);
+  background: var(--grey);
   border-bottom: 1px solid var(--line);
 }
-.intro-top {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: clamp(30px, 5vw, 90px);
-  align-items: end;
-}
+
+.intro-copy { display: flex; flex-direction: column; }
+
+/* the one serif moment on the site — it carries the whole statement */
 .intro-statement {
-  margin-top: 18px;
-  max-width: 20ch;
-  font-size: clamp(26px, 3.6vw, 54px);
-  line-height: 1.08;
-  letter-spacing: -0.035em;
+  margin: 20px 0 0;
+  max-width: 14ch;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-size: clamp(34px, 4.6vw, 68px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
   text-wrap: balance;
 }
-.intro-statement em {
-  font-style: normal;
-  color: var(--accent);
-  /* hairline underline that draws itself once the section is in view */
-  background: linear-gradient(var(--sand), var(--sand)) left 100% / 0 2px no-repeat;
-  padding-bottom: 2px;
-  animation: underline 0.9s 0.35s cubic-bezier(0.22, 0.7, 0.2, 1) forwards;
-}
-@keyframes underline { to { background-size: 100% 2px; } }
+.intro-statement em { font-style: italic; color: var(--accent); }
 
-.intro-aside p {
+.intro-foot { margin-top: auto; padding-top: clamp(40px, 6vw, 96px); }
+.intro-foot p {
   max-width: 44ch;
   margin-bottom: 26px;
-  font-size: clamp(15px, 1.2vw, 18px);
-  line-height: 1.65;
+  font-size: clamp(14px, 1.05vw, 17px);
+  line-height: 1.72;
   color: var(--muted);
 }
 
 .fields {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 1px;
-  margin: clamp(40px, 5vw, 72px) 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
-  background: var(--line);
-  border: 1px solid var(--line);
+  border-top: 1px solid var(--ink);
+  align-self: start;
 }
-.fields li { background: var(--paper); }
 .fields a {
-  display: block;
-  height: 100%;
-  padding: 22px 20px 26px;
-  font-size: clamp(15px, 1.3vw, 18px);
-  font-weight: 500;
-  letter-spacing: -0.015em;
-  line-height: 1.25;
-  transition: background 0.25s, color 0.25s;
+  display: grid;
+  grid-template-columns: clamp(44px, 4vw, 68px) 1fr 24px;
+  align-items: center;
+  gap: 14px;
+  padding: clamp(17px, 1.6vw, 26px) 0;
+  border-bottom: 1px solid var(--line);
+  transition: color 0.2s;
 }
-.fields a span {
-  display: block;
-  margin-bottom: 26px;
+.fields li:last-child a { border-bottom-color: var(--ink); }
+.field-no {
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   color: var(--accent);
-  transition: color 0.25s;
 }
-.fields a:hover { background: var(--ink); color: #fff; }
-.fields a:hover span { color: #fff; }
+.field-name {
+  font-size: clamp(17px, 1.5vw, 23px);
+  letter-spacing: -0.015em;
+}
+.fields svg { justify-self: end; transition: transform 0.25s; }
+.fields a:hover { color: var(--accent); }
+.fields a:hover svg { transform: translate(3px, -3px); }
 
 /* ---------- card feed ---------- */
 
@@ -887,7 +882,7 @@ p { margin: 0; }
 
 @media (max-width: 880px) {
   .main { padding-top: 78px; }
-  .intro-top { grid-template-columns: 1fr; align-items: start; }
+  .intro { grid-template-columns: 1fr; }
   .shead { display: block; }
   .shead .text-link { margin-top: 20px; }
   .split, .two-col, .contact-layout, .ftr-top { grid-template-columns: 1fr; }

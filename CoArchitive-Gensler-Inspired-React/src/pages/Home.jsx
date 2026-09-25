@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "../router.jsx";
 import { Card, SectionHead, Stats } from "../components/UI.jsx";
 import { FEATURE, FIELDS, PROJECTS, INSIGHTS, EXPERTISE, STATS } from "../data.js";
@@ -26,14 +26,12 @@ export default function Home() {
       </section>
 
       <section className="intro">
-        <div className="intro-top">
-          <div>
-            <span className="eyebrow">Who we are</span>
-            <h2 className="intro-statement">
-              CoArchitive is a <em>multidisciplinary</em> consultancy and technology practice.
-            </h2>
-          </div>
-          <div className="intro-aside">
+        <div className="intro-copy">
+          <span className="eyebrow">Who we are</span>
+          <h2 className="intro-statement">
+            CoArchitive is a <em>multidisciplinary</em> consultancy and technology practice.
+          </h2>
+          <div className="intro-foot">
             <p>
               Seven connected fields, one team. Most of our work sits where several of them meet —
               which is usually where a single-discipline answer falls short.
@@ -48,8 +46,9 @@ export default function Home() {
           {FIELDS.map((f, i) => (
             <li key={f}>
               <Link to="expertise">
-                <span>{String(i + 1).padStart(2, "0")}</span>
-                {f}
+                <span className="field-no">{String(i + 1).padStart(2, "0")}</span>
+                <span className="field-name">{f}</span>
+                <ArrowUpRight size={18} />
               </Link>
             </li>
           ))}
