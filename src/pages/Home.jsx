@@ -2,7 +2,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "../router.jsx";
 import { Card, SectionHead, Stats } from "../components/UI.jsx";
-import { FEATURE, FIELDS, PROJECTS, INSIGHTS, EXPERTISE, STATS } from "../data.js";
+import { FEATURE, FIELDS, INTRO_FIGURE, PROJECTS, INSIGHTS, EXPERTISE, STATS } from "../data.js";
 
 export default function Home() {
   return (
@@ -27,7 +27,7 @@ export default function Home() {
 
       <section className="intro">
         <div className="intro-top">
-          <div>
+          <div className="intro-copy">
             <span className="eyebrow">Who we are</span>
             <h2 className="intro-statement">
               CoArchitive is a <em>multidisciplinary</em> consultancy and technology practice.
@@ -42,14 +42,25 @@ export default function Home() {
               Discover CoArchitive <ArrowRight size={16} />
             </Link>
           </div>
+          <div className="intro-figure" style={{ backgroundImage: `url(${INTRO_FIGURE})` }} />
         </div>
 
+        {/* image cards — photo, number, field, reveal arrow */}
         <ul className="fields">
           {FIELDS.map((f, i) => (
-            <li key={f}>
+            <li key={f.name}>
               <Link to="expertise">
-                <span>{String(i + 1).padStart(2, "0")}</span>
-                {f}
+                <span className="field-img" style={{ backgroundImage: `url(${f.img})` }} />
+                <span className="field-veil" />
+                <span className="field-body">
+                  <span>
+                    <span className="field-no">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="field-name">{f.name}</span>
+                  </span>
+                  <span className="field-go">
+                    <ArrowRight size={16} />
+                  </span>
+                </span>
               </Link>
             </li>
           ))}

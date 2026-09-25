@@ -357,22 +357,26 @@ p { margin: 0; }
 .phero.has-img.half h1 { font-size: clamp(32px, 4.6vw, 68px); }
 .phero.has-img p { color: rgba(255, 255, 255, 0.85); }
 
-/* ---------- intro: statement + field grid ---------- */
+/* ---------- intro: statement, figure, and image cards ---------- */
 
-.intro {
-  padding: clamp(56px, 7vw, 110px) var(--pad);
-  border-bottom: 1px solid var(--line);
-}
+.intro { border-bottom: 1px solid var(--line); }
+
 .intro-top {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: clamp(30px, 5vw, 90px);
-  align-items: end;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.8fr) minmax(0, 1.45fr);
+  gap: clamp(20px, 3vw, 54px);
+  align-items: start;
+  padding-left: var(--pad);
 }
+.intro-copy, .intro-aside {
+  padding: clamp(50px, 6.5vw, 96px) 0 clamp(36px, 4.5vw, 64px);
+}
+.intro-aside { padding-top: calc(clamp(50px, 6.5vw, 96px) + 0.6vw); }
+
 .intro-statement {
   margin-top: 18px;
-  max-width: 20ch;
-  font-size: clamp(26px, 3.6vw, 54px);
+  max-width: 18ch;
+  font-size: clamp(26px, 3.4vw, 50px);
   line-height: 1.08;
   letter-spacing: -0.035em;
   text-wrap: balance;
@@ -380,7 +384,6 @@ p { margin: 0; }
 .intro-statement em {
   font-style: normal;
   color: var(--accent);
-  /* hairline underline that draws itself once the section is in view */
   background: linear-gradient(var(--sand), var(--sand)) left 100% / 0 2px no-repeat;
   padding-bottom: 2px;
   animation: underline 0.9s 0.35s cubic-bezier(0.22, 0.7, 0.2, 1) forwards;
@@ -388,45 +391,94 @@ p { margin: 0; }
 @keyframes underline { to { background-size: 100% 2px; } }
 
 .intro-aside p {
-  max-width: 44ch;
-  margin-bottom: 26px;
-  font-size: clamp(15px, 1.2vw, 18px);
+  max-width: 42ch;
+  margin-bottom: 24px;
+  font-size: clamp(14px, 1.05vw, 17px);
   line-height: 1.65;
   color: var(--muted);
 }
 
+/* the figure runs to the top and right edges of the band */
+.intro-figure {
+  align-self: stretch;
+  min-height: clamp(230px, 27vw, 400px);
+  background-size: cover;
+  background-position: center;
+  background-color: var(--grey);
+}
+
+/* ---------- field image cards ---------- */
+
 .fields {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 1px;
-  margin: clamp(40px, 5vw, 72px) 0 0;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin: 0;
   padding: 0;
   list-style: none;
-  background: var(--line);
-  border: 1px solid var(--line);
 }
-.fields li { background: var(--paper); }
 .fields a {
+  position: relative;
   display: block;
-  height: 100%;
-  padding: 22px 20px 26px;
-  font-size: clamp(15px, 1.3vw, 18px);
-  font-weight: 500;
-  letter-spacing: -0.015em;
-  line-height: 1.25;
-  transition: background 0.25s, color 0.25s;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  color: #fff;
+  background: var(--dark);
 }
-.fields a span {
+.field-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.fields a:hover .field-img,
+.fields a:focus-visible .field-img { transform: scale(1.07); }
+.field-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 12, 8, 0.85), rgba(10, 12, 8, 0.12) 62%);
+}
+.field-body {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  padding: clamp(12px, 1.1vw, 18px);
+}
+.field-no {
   display: block;
-  margin-bottom: 26px;
+  margin-bottom: 10px;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.16em;
-  color: var(--accent);
-  transition: color 0.25s;
+  color: #fff;
 }
-.fields a:hover { background: var(--ink); color: #fff; }
-.fields a:hover span { color: #fff; }
+.field-name {
+  display: block;
+  font-size: clamp(13px, 1vw, 16px);
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+}
+.field-go {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: clamp(28px, 2.2vw, 36px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.fields a:hover .field-go,
+.fields a:focus-visible .field-go {
+  background: #fff;
+  border-color: #fff;
+  color: var(--ink);
+}
 
 /* ---------- card feed ---------- */
 
@@ -881,6 +933,9 @@ p { margin: 0; }
   .burger { display: grid; }
   .disc-grid, .people-grid, .people-grid.three, .values, .ftr-cols { grid-template-columns: repeat(2, 1fr); }
   .people-grid.five { grid-template-columns: repeat(3, 1fr); }
+  .fields { grid-template-columns: repeat(4, 1fr); }
+  .intro-top { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .intro-figure { grid-column: 1 / -1; margin-left: calc(var(--pad) * -1); min-height: 42vw; }
   .feed, .feed.three { grid-template-columns: repeat(2, 1fr); }
   .card.wide { grid-column: span 2; }
 }
@@ -888,6 +943,8 @@ p { margin: 0; }
 @media (max-width: 880px) {
   .main { padding-top: 78px; }
   .intro-top { grid-template-columns: 1fr; align-items: start; }
+  .intro-aside { padding-top: 0; }
+  .fields { grid-template-columns: repeat(3, 1fr); }
   .shead { display: block; }
   .shead .text-link { margin-top: 20px; }
   .split, .two-col, .contact-layout, .ftr-top { grid-template-columns: 1fr; }
@@ -909,6 +966,7 @@ p { margin: 0; }
   .card.wide .card-img { aspect-ratio: 4 / 3; }
   .disc-grid, .people-grid, .people-grid.three, .values, .ftr-cols, .form { grid-template-columns: 1fr; }
   .people-grid.five { grid-template-columns: repeat(2, 1fr); }
+  .fields { grid-template-columns: repeat(2, 1fr); }
   .stats { grid-template-columns: 1fr; }
   .stats div { border-right: 0; border-bottom: 1px solid var(--line); padding-left: 0 !important; }
   .hero-foot span:last-child { display: none; }

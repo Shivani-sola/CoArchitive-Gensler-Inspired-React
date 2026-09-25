@@ -44,16 +44,20 @@ export const FEATURE = {
   img: img("1487958449943-2429e8be8625", 2400),
 };
 
+// Architectural figure alongside the intro statement.
+export const INTRO_FIGURE = img("1582407947304-fd86f028f716", 2000);
+
 // The seven fields the practice spans — pulled out of the intro sentence so they
-// can be scanned rather than read.
+// can be scanned rather than read. Imagery matches the matching EXPERTISE entry
+// so a field looks the same wherever it appears.
 export const FIELDS = [
-  "Architecture",
-  "Urban & Regional Planning",
-  "Transportation",
-  "Environment",
-  "Geospatial Technologies",
-  "Research",
-  "Digital Innovation",
+  { name: "Architecture", img: img("1497366754035-f200968a6e72", 900) },
+  { name: "Urban & Regional Planning", img: img("1477959858617-67f85cf4f1df", 900) },
+  { name: "Transportation", img: img("1519501025264-65ba15a82390", 900) },
+  { name: "Environment", img: img("1441974231531-c6227db76b6e", 900) },
+  { name: "Geospatial Technologies", img: img("1451187580459-43490279c0fa", 900) },
+  { name: "Research", img: img("1507842217343-583bb7270b66", 900) },
+  { name: "Digital Innovation", img: img("1551288049-bebda4e38f71", 900) },
 ];
 
 export const EXPERTISE = [
