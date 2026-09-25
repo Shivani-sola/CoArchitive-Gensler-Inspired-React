@@ -831,7 +831,13 @@
   /* same clipping as the 620 block, milder: a 480px board leaves the outer
      columns too close to the edge for a 0.42 scatter */
   .h-shift { --k: 0.22; height: 240vh; }
-  .h-shift-stage { grid-template-columns: 1fr; align-content: center; gap: 44px; }
+  /* The stage carries both .h-sticky and .h-shift-stage. .h-sticky sets
+     display:flex and lands later in the bundle, so at equal specificity it beat
+     the grid here — which made grid-template-columns inert and left the copy and
+     board side by side, pushing the board's third column off the right edge.
+     The descendant selector outranks it and restores the stacked layout. */
+  .h-shift .h-shift-stage { display: grid; grid-template-columns: 1fr; }
+  .h-shift-stage { align-content: center; gap: 44px; }
   .h-shift-copy p { display: none; }
   .h-shift-board { max-width: 420px; }
 
