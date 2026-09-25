@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 
 /**
- * Brand lockup: cream tile, green "[" and tan "]" brackets with a green counter
- * between them, gaps left open at every stroke end.
+ * Brand lockup: dark green tile, white "[" and sand "]" brackets around a white
+ * counter, with a slot cut through the sand lower arm.
  *
- * Drop the supplied artwork at `public/brand/coarchitive-mark.png` (or .svg and
- * change MARK_SRC) and it is used instead. Until that file exists <MarkSvg>
- * stands in — a reconstruction, not the original artwork.
+ * The artwork lives at `public/brand/coarchitive-mark.svg`. <MarkSvg> below is
+ * the older cream-ground fallback, kept only for the onError path.
  */
-const MARK_SRC = "/brand/coarchitive-mark.png";
+const MARK_SRC = "/brand/coarchitive-mark.svg";
 
 export function MarkSvg({ size = 40 }) {
   return (

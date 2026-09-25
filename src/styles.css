@@ -179,8 +179,9 @@ p { margin: 0; }
   display: block;
   flex: none;
   aspect-ratio: 1;
-  /* the mark carries its own cream ground, so it needs one on a dark footer too */
-  background: var(--cream);
+  /* the artwork carries its own dark ground and rounded corners — a background
+     here would show as square corners behind it */
+  border-radius: 22%;
   transition: height 0.25s, width 0.25s;
 }
 .logo-text { display: grid; gap: 2px; }

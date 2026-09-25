@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="CoArchitive">
+  <!-- dark ground, rounded square -->
+  <rect width="120" height="120" rx="27" fill="#193A2A" />
+
+  <!-- left bracket — white -->
+  <path d="M53 23H36a8.5 8.5 0 0 0-8.5 8.5v57A8.5 8.5 0 0 0 36 97h17"
+        fill="none" stroke="#ffffff" stroke-width="8.6" stroke-linecap="round" />
+
+  <!-- right bracket — sand -->
+  <path d="M67 23h17a8.5 8.5 0 0 1 8.5 8.5v57A8.5 8.5 0 0 1 84 97H67"
+        fill="none" stroke="#C3A681" stroke-width="8.6" stroke-linecap="round" />
+  <!-- slot cut through the sand lower arm -->
+  <path d="M74 93h9" stroke="#193A2A" stroke-width="3.4" stroke-linecap="round" />
+
+  <!-- centre counter -->
+  <rect x="48.5" y="41" width="23" height="41" rx="11.5"
+        fill="none" stroke="#ffffff" stroke-width="6.6" />
+  <!-- stem inside the counter, stopping at its base -->
+  <path d="M60 66V78" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" />
+</svg>
