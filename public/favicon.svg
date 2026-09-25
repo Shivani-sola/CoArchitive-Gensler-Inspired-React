@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="CoArchitive">
-  <!-- Same mark as public/brand/coarchitive-mark.svg, with heavier strokes and
-       the fine details dropped so it still reads at 16px. -->
-  <rect width="120" height="120" rx="24" fill="#193A2A" />
+  <rect width="120" height="120" rx="18" fill="#F7F4E8" />
 
-  <path d="M52 22H36a9 9 0 0 0-9 9v58a9 9 0 0 0 9 9h16"
-        fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" />
+  <!-- left bracket — forest green -->
+  <path d="M48 22H32a8 8 0 0 0-8 8v60a8 8 0 0 0 8 8h16"
+        fill="none" stroke="#3E4F26" stroke-width="14" />
 
-  <path d="M68 22h16a9 9 0 0 1 9 9v58a9 9 0 0 1-9 9H68"
-        fill="none" stroke="#C3A681" stroke-width="11" stroke-linecap="round" />
+  <!-- right bracket — sand -->
+  <path d="M72 22h16a8 8 0 0 1 8 8v60a8 8 0 0 1-8 8H72"
+        fill="none" stroke="#B49B72" stroke-width="14" />
 
-  <rect x="48" y="40" width="24" height="42" rx="12"
-        fill="none" stroke="#ffffff" stroke-width="8" />
+  <!-- centre stem -->
+  <path d="M60 34v52" stroke="#3E4F26" stroke-width="14" stroke-linecap="round" />
 </svg>
