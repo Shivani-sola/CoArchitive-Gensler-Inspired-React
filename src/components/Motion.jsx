@@ -118,9 +118,10 @@ export function useScrollProgress(ref, mode = "through", onProgress) {
 
 // ---------- count up ----------
 
-export function Counter({ to, decimals = 0, prefix = "", suffix = "", duration = 1800 }) {
+// `pad` keeps leading zeros, so "08" counts up as 00 → 08
+export function Counter({ to, decimals = 0, prefix = "", suffix = "", pad = 0, duration = 1800 }) {
   const ref = useRef(null);
-  const fmt = (n) => prefix + n.toFixed(decimals) + suffix;
+  const fmt = (n) => prefix + n.toFixed(decimals).padStart(pad, "0") + suffix;
 
   useEffect(() => {
     const el = ref.current;
@@ -201,6 +202,22 @@ export function useTilt(ref, max = 5) {
       el.removeEventListener("pointerleave", leave);
     };
   }, [max]);
+}
+
+// Sets --cx / --cy (px, relative to the element) while the pointer is over it,
+// for labels that follow the cursor.
+export function usePointerVars(ref) {
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !finePointer()) return;
+    const move = (e) => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty("--cx", `${e.clientX - r.left}px`);
+      el.style.setProperty("--cy", `${e.clientY - r.top}px`);
+    };
+    el.addEventListener("pointermove", move);
+    return () => el.removeEventListener("pointermove", move);
+  }, []);
 }
 
 export function Magnetic({ as: Tag = "span", className = "", children, strength }) {

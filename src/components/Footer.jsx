@@ -2,6 +2,8 @@ import React from "react";
 import { Linkedin, Instagram, Twitter, ArrowRight } from "lucide-react";
 import { Link } from "../router.jsx";
 import Logo from "./Logo.jsx";
+import { Magnetic } from "./Motion.jsx";
+import { Contours } from "./UI.jsx";
 import { NAV, TAGLINE, COMPANY, CONTACT, HEAD_OFFICE } from "../data.js";
 
 // The home page ends on its own call to action, so it hides this one.
@@ -9,15 +11,18 @@ export default function Footer({ showCta = true }) {
   return (
     <footer className="ftr">
       <div className={showCta ? "ftr-top" : "ftr-top solo"}>
+        {showCta && <Contours className="ftr-contours" count={8} cx={260} cy={760} base={90} step={54} seed={3.1} />}
         {showCta && <div className="ftr-cta">
           <h2>
             Have a complex challenge?
             <br />
             <em>Let’s shape it together.</em>
           </h2>
-          <Link to="contact" className="btn-lg">
-            Start a conversation <ArrowRight size={18} />
-          </Link>
+          <Magnetic>
+            <Link to="contact" className="btn-lg">
+              Start a conversation <ArrowRight size={18} />
+            </Link>
+          </Magnetic>
         </div>}
 
         <form className="ftr-news" onSubmit={(e) => e.preventDefault()}>

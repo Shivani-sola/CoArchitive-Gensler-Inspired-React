@@ -1,7 +1,7 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ArrowRight, ArrowUpRight, ArrowLeft, Plus } from "lucide-react";
 import { Link } from "../router.jsx";
-import { SectionHead } from "../components/UI.jsx";
+import { SectionHead, Contours, ScrollStatement } from "../components/UI.jsx";
 import AtlasDemo from "../components/AtlasDemo.jsx";
 import {
   Reveal,
@@ -22,44 +22,6 @@ import "../home.css";
 
 const scrollToId = (id) =>
   document.getElementById(id)?.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth" });
-
-// "*word*" in copy is set in the italic accent face
-const emphasise = (text) =>
-  text.split(/(\*[^*]+\*)/).map((part, i) =>
-    part.startsWith("*") ? <em key={i}>{part.slice(1, -1)}</em> : part
-  );
-
-// Wobbly concentric rings, like contour lines on a survey drawing.
-function useContours(count, cx, cy, base, step, seed) {
-  return useMemo(() => {
-    const paths = [];
-    for (let k = 0; k < count; k++) {
-      const r0 = base + k * step;
-      const pts = [];
-      for (let a = 0; a <= 64; a++) {
-        const t = (a / 64) * Math.PI * 2;
-        const wob =
-          Math.sin(t * 3 + seed + k * 0.35) * 0.07 +
-          Math.sin(t * 5 - seed * 0.6 + k * 0.2) * 0.035;
-        const r = r0 * (1 + wob);
-        pts.push(`${(cx + Math.cos(t) * r * 1.25).toFixed(1)},${(cy + Math.sin(t) * r).toFixed(1)}`);
-      }
-      paths.push("M" + pts.join("L") + "Z");
-    }
-    return paths;
-  }, [count, cx, cy, base, step, seed]);
-}
-
-function Contours({ className, ...opts }) {
-  const paths = useContours(opts.count, opts.cx, opts.cy, opts.base, opts.step, opts.seed);
-  return (
-    <svg className={className} viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      {paths.map((d, i) => (
-        <path key={i} d={d} pathLength="1" style={{ "--i": i }} />
-      ))}
-    </svg>
-  );
-}
 
 // ---------- 1. hero ----------
 
@@ -204,31 +166,6 @@ function Clients() {
               {c}
             </span>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ---------- 3. problem: words light up as you scroll ----------
-
-function Problem() {
-  const ref = useRef(null);
-  useScrollProgress(ref, "pinned");
-  const words = HOME.problem.split(" ");
-
-  return (
-    <section id="problem" className="h-problem" ref={ref} style={{ "--n": words.length }}>
-      <div className="h-sticky">
-        <div className="h-problem-inner">
-          <span className="eyebrow">The problem</span>
-          <p className="h-problem-text">
-            {words.map((w, i) => (
-              <span key={i} style={{ "--i": i }}>
-                {emphasise(w)}{" "}
-              </span>
-            ))}
-          </p>
         </div>
       </div>
     </section>
@@ -671,7 +608,7 @@ export default function Home() {
     <>
       <Hero />
       <Clients />
-      <Problem />
+      <ScrollStatement id="problem" kicker="The problem" text={HOME.problem} />
       <Shift />
       <Steps />
       <Capabilities />

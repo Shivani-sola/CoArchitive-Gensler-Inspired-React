@@ -26,8 +26,8 @@ export default function Header({ route }) {
   }, [open]);
 
   const close = () => setOpen(false);
-  // on the home page the bar sits transparent over the dark hero until scrolled
-  const over = route === "home" && !scrolled && !open;
+  // every page opens on a dark hero, so the bar sits transparent until scrolled
+  const over = !scrolled && !open;
   const cls = ["hdr", scrolled && "scrolled", over && "over", open && "menu-open"].filter(Boolean).join(" ");
 
   return (

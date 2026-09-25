@@ -8,36 +8,12 @@
              written by components/Motion.jsx
    ========================================================================== */
 
-.h-hero em, .h-problem-text em, .h-shift-copy em, .h-product-copy em,
+.h-hero em, .h-shift-copy em, .h-product-copy em,
 .h-work-intro em, .h-results-head em, .h-team-head em, .h-cta em {
   font-family: var(--serif);
   font-style: italic;
   font-weight: 400;
   letter-spacing: -0.015em;
-}
-
-@keyframes hIn { from { opacity: 0; transform: translate3d(0, 22px, 0); } }
-@keyframes lineUp { from { transform: translate3d(0, 106%, 0); } }
-@keyframes rotIn { from { opacity: 0; transform: translate3d(0, 55%, 0); } }
-@keyframes draw { from { stroke-dashoffset: 1; } }
-@keyframes frameIn { from { clip-path: inset(100% 0 0 0); } }
-@keyframes imgIn { from { transform: scale(1.22); } }
-@keyframes barIn { from { transform: scaleX(0); } }
-@keyframes cue { 0% { transform: scaleY(0); transform-origin: top; } 45% { transform: scaleY(1); transform-origin: top; } 55% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
-@keyframes marquee { to { transform: translate3d(-50%, 0, 0); } }
-@keyframes pulse { 50% { opacity: 0.35; } }
-
-.h-in { animation: hIn var(--t-slow) var(--ease-out) var(--d, 0ms) both; }
-
-/* shared sticky stage for the scroll-pinned sections */
-.h-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  height: 100svh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
 }
 
 /* ---------- 1. hero ---------- */
@@ -81,13 +57,6 @@
   height: 116%;
   transform: translate3d(0, calc((var(--p, 0.5) - 0.5) * 140px), 0);
   pointer-events: none;
-}
-.h-contours path {
-  fill: none;
-  stroke: rgba(216, 203, 180, 0.14);
-  stroke-width: 1.2;
-  stroke-dasharray: 1;
-  animation: draw 2.8s var(--ease-out) calc(200ms + var(--i) * 90ms) both;
 }
 
 .h-hero-grid {
@@ -267,22 +236,6 @@
 }
 .h-marquee-track span::before { content: ""; width: 7px; height: 7px; background: var(--sand); }
 .h-marquee-track span:hover { color: var(--ink); }
-
-/* ---------- 3. problem ---------- */
-
-.h-problem { position: relative; height: 240vh; }
-.h-problem-inner { padding: 0 var(--pad); }
-.h-problem-text {
-  max-width: 1240px;
-  margin-top: 26px;
-  font-size: clamp(30px, 5vw, 80px);
-  font-weight: 500;
-  line-height: 1.07;
-  letter-spacing: -0.035em;
-}
-/* each word brightens in turn as --p advances */
-.h-problem-text > span { opacity: clamp(0.12, calc(var(--p, 0) * (var(--n) + 8) - var(--i)), 1); }
-.h-problem-text em { color: var(--accent); }
 
 /* ---------- 4. shift ---------- */
 
@@ -872,8 +825,6 @@
   .h-clients { grid-template-columns: 1fr; padding-right: 0; }
   .h-clients p { max-width: none; padding-right: var(--pad); }
 
-  .h-problem { height: 200vh; }
-
   .h-shift { --k: 0.42; height: 240vh; }
   .h-shift-stage { grid-template-columns: 1fr; align-content: center; gap: 44px; }
   .h-shift-copy p { display: none; }
@@ -939,11 +890,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .h-problem-text > span { opacity: 1; }
   .h-shift { --q: 1; height: auto; }
   .h-shift .h-sticky { position: static; height: auto; padding-block: clamp(80px, 10vw, 140px); }
-  .h-problem { height: auto; }
-  .h-problem .h-sticky { position: static; height: auto; padding-block: clamp(80px, 10vw, 140px); }
   .h-marquee-track { flex-wrap: wrap; width: auto; row-gap: 14px; }
   .h-marquee-track span[aria-hidden="true"] { display: none; }
   .h-marquee { -webkit-mask-image: none; mask-image: none; }

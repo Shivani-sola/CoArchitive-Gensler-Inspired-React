@@ -418,6 +418,26 @@ export const HOME = {
   ],
 };
 
+// Who the practice works with (About page). Client types come from the About
+// copy; the one-line descriptions are PLACEHOLDER wording.
+export const SECTORS = [
+  { title: "Government & public authorities", meta: "Master plans · policy · infrastructure", img: img("1477959858617-67f85cf4f1df", 900) },
+  { title: "Private organisations", meta: "Buildings · campuses · feasibility", img: img("1497366754035-f200968a6e72", 900) },
+  { title: "Academic institutions", meta: "Research · campus planning · training", img: img("1523240795612-9a054b0db644", 900) },
+  { title: "Development partners", meta: "Programmes · capacity building · evaluation", img: img("1441974231531-c6227db76b6e", 900) },
+];
+
+// PLACEHOLDER: a typical hiring process, to be confirmed by the practice.
+export const HIRING = [
+  ["Apply", "Send a CV and two or three pieces of work you are proud of."],
+  ["Conversation", "A relaxed call with a director about your work and interests."],
+  ["Studio visit", "Meet the team and talk through a real project with us."],
+  ["Offer", "A clear offer, usually within a week of the visit."],
+];
+
+// Head office location, for the map panel on the Offices page.
+export const HQ = { lat: "17.63° N", lng: "78.48° E", tz: "Asia/Kolkata", tzLabel: "IST" };
+
 export const VALUES = [
   ["Integrated by default", "Teams are formed around the problem, not around a department chart."],
   ["Evidence over assertion", "Positions are backed by data we collected or can trace."],
