@@ -1,12 +1,16 @@
 /* ---------- opening sequence (components/Preloader.jsx) ---------- */
 
+/* colours of the approved app-icon logo */
 .pre {
+  --pre-bg: #1a3b2a;
+  --pre-fg: #ffffff;
+  --pre-tan: #c8b597;
   position: fixed;
   inset: 0;
   z-index: 200;
   display: grid;
   place-items: center;
-  background: var(--cream);
+  background: var(--pre-bg);
   cursor: pointer;
   transition: transform 0.95s cubic-bezier(0.76, 0, 0.24, 1);
 }
@@ -41,7 +45,7 @@
   height: 51.2%;
   overflow: hidden;
   border-radius: 999px;
-  background: var(--green);
+  background: rgba(255, 255, 255, 0.12);
   transform: scaleY(0);
   animation: preTile 0.6s var(--ease-out) 0.45s forwards;
 }
@@ -78,7 +82,7 @@
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--green);
+  color: var(--pre-tan);
 }
 .pre-cap span {
   position: absolute;
@@ -99,7 +103,7 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.1;
-  color: var(--ink);
+  color: var(--pre-fg);
 }
 .pre-word span {
   display: block;
@@ -112,7 +116,7 @@
   margin-top: 12px;
   font-size: 11px;
   letter-spacing: 0.08em;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.6);
   opacity: 0;
   transition: opacity 0.6s 0.35s;
 }

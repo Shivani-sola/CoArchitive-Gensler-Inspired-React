@@ -99,7 +99,7 @@ export default function Preloader({ onReveal, onDone }) {
               <path
                 d="M170 58H115A50 50 0 0 0 65 108V555A50 50 0 0 0 115 605H170"
                 fill="none"
-                stroke="var(--green)"
+                stroke="var(--pre-fg)"
                 strokeWidth="60"
                 strokeLinecap="round"
               />
@@ -108,19 +108,19 @@ export default function Preloader({ onReveal, onDone }) {
               <path
                 d="M365 58H420A50 50 0 0 1 470 108V560"
                 fill="none"
-                stroke="var(--sand)"
+                stroke="var(--pre-tan)"
                 strokeWidth="60"
                 strokeLinecap="round"
               />
               <path
                 d="M440 470V490Q440 515 415 515H380Q320 515 320 575V580Q320 640 380 640H440Q500 640 500 580V470Z"
-                fill="var(--sand)"
+                fill="var(--pre-tan)"
               />
-              <rect x="365" y="566" width="90" height="28" rx="14" fill="var(--cream)" />
+              <rect x="365" y="566" width="90" height="28" rx="14" fill="var(--pre-bg)" />
             </g>
             <g className="pre-o">
-              <rect x="204" y="177" width="124" height="296" rx="62" fill="none" stroke="var(--green)" strokeWidth="42" />
-              <rect x="262" y="440" width="9" height="60" fill="var(--cream)" />
+              <rect x="204" y="177" width="124" height="296" rx="62" fill="none" stroke="var(--pre-fg)" strokeWidth="42" />
+              <rect x="262" y="440" width="9" height="60" fill="var(--pre-bg)" />
             </g>
           </svg>
 
