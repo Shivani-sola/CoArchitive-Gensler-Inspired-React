@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRoute } from "./router.jsx";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
+import Preloader from "./components/Preloader.jsx";
 import Home from "./pages/Home.jsx";
 import Insights from "./pages/Insights.jsx";
 import Expertise from "./pages/Expertise.jsx";
@@ -27,12 +28,16 @@ const PAGES = {
   contact: Contact,
 };
 
-export default function App() {
+const releaseEntrance = () => document.documentElement.classList.remove("intro");
+
+export default function App({ intro = false }) {
   const route = useRoute();
+  const [showIntro, setShowIntro] = useState(intro);
   const Page = PAGES[route] ?? Home;
 
   return (
     <div className="site">
+      {showIntro && <Preloader onReveal={releaseEntrance} onDone={() => setShowIntro(false)} />}
       <Header route={route} />
       <main key={route} className="main">
         <Page />
