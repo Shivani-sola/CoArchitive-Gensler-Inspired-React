@@ -6,9 +6,7 @@ import { reducedMotion } from "./Motion.jsx";
 //   2. the "O" becomes a window cycling one photo per discipline
 //   3. the O closes back into the mark and the wordmark rises
 //   4. the panel lifts away and the page's own entrance plays
-// Plays once per browser session; any click or key skips it.
-
-const SEEN_KEY = "intro-seen";
+// Plays on every page load (including reloads); any click or key skips it.
 
 const SLIDES = [
   ["Architecture", "1600585154340-be6161a56a0c"],
@@ -30,13 +28,9 @@ const T_BRAND = T_FIRST_SLIDE + SLIDES.length * T_SLIDE + 120;
 const T_EXIT = T_BRAND + 1000;
 const T_EXIT_LEN = 950;
 
+// Off for visitors who ask their system for reduced motion.
 export function shouldPlayIntro() {
-  if (reducedMotion()) return false;
-  try {
-    return sessionStorage.getItem(SEEN_KEY) !== "1";
-  } catch {
-    return true;
-  }
+  return !reducedMotion();
 }
 
 export default function Preloader({ onReveal, onDone }) {
@@ -47,9 +41,6 @@ export default function Preloader({ onReveal, onDone }) {
     SLIDES.forEach((s) => {
       new Image().src = s.src;
     });
-    try {
-      sessionStorage.setItem(SEEN_KEY, "1");
-    } catch {}
 
     const root = document.documentElement;
     root.style.overflow = "hidden";
