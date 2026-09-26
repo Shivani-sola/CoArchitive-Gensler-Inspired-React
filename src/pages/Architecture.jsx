@@ -1,5 +1,5 @@
 import React from "react";
-import { PageHero, SectionHead, Principles, ScrollStatement } from "../components/UI.jsx";
+import { PageHero, SectionHead, Principles, ScrollStatement, ServiceGrid, ConsultPopup } from "../components/UI.jsx";
 import { ARCH_SERVICES, ARCH_IDEAS, ARCH_AREAS } from "../data.js";
 
 export default function Architecture() {
@@ -25,7 +25,8 @@ export default function Architecture() {
 
       <section className="sec grey">
         <SectionHead kicker="Architectural services" title="From first plan *to final render*" link="contact" linkLabel="Book a consultation" />
-        <Principles items={ARCH_SERVICES} />
+        <ServiceGrid items={ARCH_SERVICES} />
+        <ConsultPopup />
       </section>
 
       <section className="sec">

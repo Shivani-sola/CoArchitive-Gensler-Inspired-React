@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ArrowRight, ArrowUpRight, ArrowLeft, Plus } from "lucide-react";
 import { Link } from "../router.jsx";
-import { SectionHead, Contours, ScrollStatement, AboutStory } from "../components/UI.jsx";
+import { SectionHead, Contours, ScrollStatement, AboutStory, ConsultPopup } from "../components/UI.jsx";
 import AtlasDemo from "../components/AtlasDemo.jsx";
 import {
   Reveal,
@@ -13,11 +13,11 @@ import {
   reducedMotion,
   finePointer,
 } from "../components/Motion.jsx";
-import { HOME, EXPERTISE, PROJECTS, DIRECTORS, TEAM, CONTACT, ABOUT_STORY } from "../data.js";
+import { HOME, PROJECTS, DIRECTORS, TEAM, CONTACT, ABOUT_STORY, SERVICE_GROUPS } from "../data.js";
 import "../home.css";
 
 // The home page tells one story top to bottom:
-// about us → problem → shift → how it works → capabilities → product → work → results
+// about us → problem → shift → how it works → services → product → work → results
 // → proof → people → questions → call to action.
 
 const scrollToId = (id) =>
@@ -261,13 +261,13 @@ function Steps() {
   );
 }
 
-// ---------- 6. capabilities ----------
+// ---------- 6. services ----------
 
-function DiscCard({ no, title, short, img }) {
+function DiscCard({ no, title, short, img, to }) {
   const ref = useRef(null);
   useTilt(ref, 4);
   return (
-    <Link to="expertise" className="h-dcard-link">
+    <Link to={to} className="h-dcard-link">
       <div className="h-dcard" ref={ref}>
         <img src={img.replace("w=1600", "w=700")} alt="" loading="lazy" decoding="async" className="h-dcard-img" />
         <span className="h-dcard-no">{no}</span>
@@ -279,22 +279,23 @@ function DiscCard({ no, title, short, img }) {
   );
 }
 
-function Capabilities() {
+function Services() {
   return (
     <section className="sec dark h-caps">
       <SectionHead
-        kicker="Capabilities"
-        title="One practice. Eight disciplines."
-        link="expertise"
-        linkLabel="Explore expertise"
+        kicker="Our services"
+        title="Architecture, planning, *GIS and transport.*"
+        link="architecture"
+        linkLabel="Explore our services"
       />
       <div className="h-caps-grid">
-        {EXPERTISE.map((e, i) => (
-          <Reveal key={e.slug} delay={(i % 4) * 80}>
+        {SERVICE_GROUPS.map((e, i) => (
+          <Reveal key={e.title} delay={(i % 4) * 80}>
             <DiscCard {...e} />
           </Reveal>
         ))}
       </div>
+      <ConsultPopup />
     </section>
   );
 }
@@ -612,7 +613,7 @@ export default function Home() {
       <ScrollStatement id="problem" kicker="The problem" text={HOME.problem} />
       <Shift />
       <Steps />
-      <Capabilities />
+      <Services />
       <Product />
       <Work />
       <Results />

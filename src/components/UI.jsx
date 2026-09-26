@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, X } from "lucide-react";
 import { Link } from "../router.jsx";
 import {
   Reveal,
@@ -216,6 +216,80 @@ export function Principles({ items }) {
         </Reveal>
       ))}
     </div>
+  );
+}
+
+// ---------- service cards ----------
+
+// Photo, number, name and one line for each service.
+export function ServiceGrid({ items }) {
+  return (
+    <div className="svc-grid">
+      {items.map((it, i) => (
+        <Reveal as="article" key={it.title} className="svc" delay={(i % 3) * 90}>
+          <div className="svc-img">
+            <img src={it.img} alt="" loading="lazy" decoding="async" />
+          </div>
+          <span className="svc-no">{pad2(i + 1)}</span>
+          <h3>{it.title}</h3>
+          <p>{it.body}</p>
+        </Reveal>
+      ))}
+    </div>
+  );
+}
+
+// ---------- consultation pop-up ----------
+
+// Drop <ConsultPopup /> after a page's services: once that point scrolls into
+// view a card slides in inviting a consultation. Closing it keeps it closed for
+// the rest of the visit.
+const POPUP_KEY = "consult-popup-closed";
+
+export function ConsultPopup() {
+  const mark = useRef(null);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    let closed = false;
+    try {
+      closed = sessionStorage.getItem(POPUP_KEY) === "1";
+    } catch {}
+    const el = mark.current;
+    if (closed || !el || !("IntersectionObserver" in window)) return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        setOpen(true);
+        obs.disconnect();
+      }
+    });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  const close = () => {
+    setOpen(false);
+    try {
+      sessionStorage.setItem(POPUP_KEY, "1");
+    } catch {}
+  };
+
+  return (
+    <>
+      <div ref={mark} aria-hidden="true" />
+      <aside className={open ? "consult on" : "consult"} aria-hidden={!open} aria-label="Book a consultation">
+        <button type="button" className="consult-x" aria-label="Close" onClick={close} tabIndex={open ? 0 : -1}>
+          <X size={16} />
+        </button>
+        <span className="eyebrow">Start your journey with us</span>
+        <strong>
+          Let’s design <em>together.</em>
+        </strong>
+        <Link to="contact" className="btn-lg" onClick={close} tabIndex={open ? 0 : -1}>
+          Book a consultation <ArrowRight size={18} />
+        </Link>
+      </aside>
+    </>
   );
 }
 

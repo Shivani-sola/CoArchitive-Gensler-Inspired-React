@@ -480,16 +480,16 @@ export const VALUES = [
 // ---------- Architecture & Planning service pages (from the client content brief) ----------
 
 export const ARCH_SERVICES = [
-  ["Residential Plan", "Homes planned around the way a family actually lives — light, air, privacy and room to grow."],
-  ["Commercial Plan", "Offices, retail and mixed-use buildings laid out for efficient operation and a clear public face."],
-  ["Services Plan", "Plumbing, electrical and drainage layouts coordinated with the architecture from the start."],
-  ["Vastu Consultancy", "Vastu principles integrated into planning without compromising function or design."],
-  ["Interior Design", "Interiors that carry the building's idea inside — materials, furniture, lighting and detail."],
-  ["Sanction Drawing", "Drawings prepared to local bye-laws for smooth building-permission approval."],
-  ["3D Modelling", "Accurate digital models to test massing, space and construction before building."],
-  ["3D Elevation", "Facade studies that settle proportion, material and character early."],
-  ["3D Rendering", "Photo-real views that let clients see the finished space before it exists."],
-  ["Turnkey Projects", "Design through construction delivered with our partner construction firms."],
+  { title: "Residential Plan", body: "Homes planned around the way a family actually lives — light, air, privacy and room to grow.", img: img("1600585154340-be6161a56a0c", 900) },
+  { title: "Commercial Plan", body: "Offices, retail and mixed-use buildings laid out for efficient operation and a clear public face.", img: img("1486406146926-c627a92ad1ab", 900) },
+  { title: "Services Plan", body: "Plumbing, electrical and drainage layouts coordinated with the architecture from the start.", img: img("1504307651254-35680f356dfd", 900) },
+  { title: "Vastu Consultancy", body: "Vastu principles integrated into planning without compromising function or design.", img: img("1558036117-15d82a90b9b1", 900) },
+  { title: "Interior Design", body: "Interiors that carry the building's idea inside — materials, furniture, lighting and detail.", img: img("1600210492486-724fe5c67fb0", 900) },
+  { title: "Sanction Drawing", body: "Drawings prepared to local bye-laws for smooth building-permission approval.", img: img("1503387762-592deb58ef4e", 900) },
+  { title: "3D Modelling", body: "Accurate digital models to test massing, space and construction before building.", img: img("1600566753190-17f0baa2a6c3", 900) },
+  { title: "3D Elevation", body: "Facade studies that settle proportion, material and character early.", img: img("1545324418-cc1a3fa10c00", 900) },
+  { title: "3D Rendering", body: "Photo-real views that let clients see the finished space before it exists.", img: img("1600596542815-ffad4c1539a9", 900) },
+  { title: "Turnkey Projects", body: "Design through construction, delivered in collaboration with our partner construction firm.", img: img("1541888946425-d81bb19240f5", 900) },
 ];
 
 export const ARCH_IDEAS = [
@@ -508,22 +508,32 @@ export const ARCH_AREAS = [
 ];
 
 export const PLANNING_SERVICES = [
-  ["Area Development Plan", "Detailed plans that guide growth, land use and infrastructure for a defined area."],
-  ["Master Plan", "Long-term spatial frameworks for cities and towns."],
-  ["Local Area Plan", "Neighbourhood-scale plans that turn city policy into streets, plots and public space."],
-  ["Regional Plan", "Strategies that coordinate settlements, economy and environment across a region."],
-  ["Comprehensive Development Plan", "Integrated plans linking land use, infrastructure, services and investment."],
+  { title: "Area Development Plan", body: "Detailed plans that guide growth, land use and infrastructure for a defined area.", img: img("1480714378408-67cf0d13bc1b", 900) },
+  { title: "Master Plan", body: "Long-term spatial frameworks for cities and towns.", img: img("1477959858617-67f85cf4f1df", 900) },
+  { title: "Local Area Plan", body: "Neighbourhood-scale plans that turn city policy into streets, plots and public space.", img: img("1542744173-8e7e53415bb0", 900) },
+  { title: "Regional Plan", body: "Strategies that coordinate settlements, economy and environment across a region.", img: img("1532601224476-15c79f2f7a51", 900) },
+  { title: "Comprehensive Development Plan", body: "Integrated plans linking land use, infrastructure, services and investment.", img: img("1444723121867-7a241cacace9", 900) },
 ];
 
 export const GIS_SERVICES = [
-  ["GIS Mapping", "Base maps, land-use and asset mapping built on reliable spatial data."],
-  ["Spatial Mapping & Analysis", "Suitability, accessibility and change analysis to support planning decisions."],
+  { title: "GIS Mapping", body: "Base maps, land-use and asset mapping built on reliable spatial data.", img: img("1569336415962-a4bd9f69cd83", 900) },
+  { title: "Spatial Mapping & Analysis", body: "Suitability, accessibility and change analysis to support planning decisions.", img: img("1524661135-423995f22d0b", 900) },
+  { title: "Remote Sensing & Land-Use Mapping", body: "Satellite imagery turned into land-use, land-cover and change maps.", img: img("1451187580459-43490279c0fa", 900) },
 ];
 
 export const TRANSPORT_SERVICES = [
-  ["Intersection Design", "Safer, more efficient junctions for vehicles, pedestrians and cyclists."],
-  ["Traffic Volume Count Analysis", "Surveys and analysis that establish how a network is used today."],
-  ["Comprehensive Mobility Plan", "City-wide strategies for public transport, walking, cycling and roads."],
+  { title: "Intersection Design", body: "Safer, more efficient junctions for vehicles, pedestrians and cyclists.", img: img("1519501025264-65ba15a82390", 900) },
+  { title: "Traffic Volume Count Analysis", body: "Surveys and analysis that establish how a network is used today.", img: img("1449824913935-59a10b8d2000", 900) },
+  { title: "Comprehensive Mobility Plan", body: "City-wide strategies for public transport, walking, cycling and roads.", img: img("1494515843206-f3117d3f51b7", 900) },
+  { title: "Parking Study", body: "Demand, supply and management plans for on- and off-street parking.", img: img("1506521781263-d8422e82f27a", 900) },
+];
+
+// The four service groups, as cards on Home (client brief 2.5).
+export const SERVICE_GROUPS = [
+  { no: "01", title: "Architectural Services", short: "Homes, commercial buildings, interiors, Vastu, sanction drawings and 3D visualisation.", to: "architecture", img: img("1600585154340-be6161a56a0c") },
+  { no: "02", title: "Planning Services", short: "Area development, master, local area, regional and comprehensive development plans.", to: "planning", img: img("1477959858617-67f85cf4f1df") },
+  { no: "03", title: "GIS & Spatial Mapping", short: "GIS mapping, spatial analysis and remote sensing for evidence-based planning.", to: "planning", img: img("1569336415962-a4bd9f69cd83") },
+  { no: "04", title: "Transportation Services", short: "Intersection design, traffic counts, parking studies and comprehensive mobility plans.", to: "planning", img: img("1519501025264-65ba15a82390") },
 ];
 
 export const SOFTWARE = [

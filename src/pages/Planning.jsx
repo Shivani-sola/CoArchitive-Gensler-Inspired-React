@@ -1,5 +1,5 @@
 import React from "react";
-import { PageHero, SectionHead, Principles, ScrollStatement } from "../components/UI.jsx";
+import { PageHero, SectionHead, Principles, ScrollStatement, ServiceGrid, ConsultPopup } from "../components/UI.jsx";
 import { PLANNING_SERVICES, GIS_SERVICES, TRANSPORT_SERVICES, SOFTWARE } from "../data.js";
 
 export default function Planning() {
@@ -20,17 +20,18 @@ export default function Planning() {
 
       <section className="sec">
         <SectionHead kicker="Planning services" title="From local area *to region*" link="contact" linkLabel="Book a consultation" />
-        <Principles items={PLANNING_SERVICES} />
+        <ServiceGrid items={PLANNING_SERVICES} />
       </section>
 
       <section className="sec grey">
         <SectionHead kicker="GIS & spatial" title="Decisions built *on the map*" />
-        <Principles items={GIS_SERVICES} />
+        <ServiceGrid items={GIS_SERVICES} />
       </section>
 
       <section className="sec">
         <SectionHead kicker="Transportation services" title="Movement designed *as a network*" />
-        <Principles items={TRANSPORT_SERVICES} />
+        <ServiceGrid items={TRANSPORT_SERVICES} />
+        <ConsultPopup />
       </section>
 
       <section className="sec grey">
