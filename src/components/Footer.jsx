@@ -68,7 +68,7 @@ export default function Footer({ showCta = true }) {
             ))}
           </address>
           <div className="ftr-social">
-            <a href="#/contact" aria-label="LinkedIn"><Linkedin size={18} /></a>
+            <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin size={18} /></a>
             <a href="#/contact" aria-label="Instagram"><Instagram size={18} /></a>
             <a href="#/contact" aria-label="X"><Twitter size={18} /></a>
           </div>

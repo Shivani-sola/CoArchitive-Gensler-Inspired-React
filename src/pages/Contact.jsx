@@ -98,7 +98,9 @@ export default function Contact() {
           <Reveal delay={270}>
             <span className="eyebrow">Connect</span>
             <p>
-              <Linkedin size={16} /> LinkedIn · CoArchitive
+              <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer">
+                <Linkedin size={16} /> LinkedIn · CoArchitive
+              </a>
             </p>
           </Reveal>
         </aside>

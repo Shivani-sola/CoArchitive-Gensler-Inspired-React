@@ -19,13 +19,13 @@ export const CONTACT = {
   email: "coarchitive@gmail.com",
   phone: "+91 83414 84422",
   phoneHref: "tel:+918341484422",
+  linkedin: "https://www.linkedin.com/company/coarchitive/home/",
 };
 
 export const NAV = [
   { to: "insights", label: "Research & Insights" },
   { to: "expertise", label: "Expertise" },
   { to: "projects", label: "Projects" },
-  { to: "people", label: "People" },
   { to: "offices", label: "Offices" },
   { to: "about", label: "About" },
   { to: "careers", label: "Careers" },

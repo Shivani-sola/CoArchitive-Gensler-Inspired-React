@@ -64,13 +64,13 @@ function Hero() {
       <div className="h-hero-grid">
         <div className="h-hero-copy">
           <span className="eyebrow h-in" style={{ "--d": "80ms" }}>
-            Planning · Architecture · Mobility · Digital
+            Planning · Architecture · Engineering · Interiors
           </span>
 
           <h1 className="h-title">
-            <span className="sr-only">Places planned as one system.</span>
+            <span className="sr-only">Spaces planned as one system.</span>
             <span className="h-line" aria-hidden="true">
-              <span style={{ "--d": "160ms" }}>Places planned</span>
+              <span style={{ "--d": "160ms" }}>Spaces planned</span>
             </span>
             <span className="h-line" aria-hidden="true">
               <span style={{ "--d": "260ms" }}>
@@ -83,9 +83,9 @@ function Hero() {
           </h1>
 
           <p className="h-lede h-in" style={{ "--d": "460ms" }}>
-            CoArchitive brings architecture, urban planning, mobility, environment and geospatial
-            technology into one team — so cities and regions are designed as systems that work,
-            not as disconnected projects.
+            CoArchitive brings planning, architecture, engineering and interiors into one team — so
+            spaces, cities and regions are designed as systems that work, not as disconnected
+            projects.
           </p>
 
           <div className="h-actions h-in" style={{ "--d": "580ms" }}>
@@ -510,7 +510,7 @@ function People() {
             Directors and specialists who work across disciplines, not beside them. The same
             people stay with a project from first brief to delivery.
           </p>
-          <Link to="people" className="text-link">
+          <Link to="about" className="text-link">
             Meet the team <ArrowRight size={16} />
           </Link>
         </Reveal>

@@ -6,7 +6,6 @@ import Home from "./pages/Home.jsx";
 import Insights from "./pages/Insights.jsx";
 import Expertise from "./pages/Expertise.jsx";
 import Projects from "./pages/Projects.jsx";
-import People from "./pages/People.jsx";
 import Offices from "./pages/Offices.jsx";
 import About from "./pages/About.jsx";
 import Careers from "./pages/Careers.jsx";
@@ -17,7 +16,7 @@ const PAGES = {
   insights: Insights,
   expertise: Expertise,
   projects: Projects,
-  people: People,
+  people: About, // merged into About; keeps old #/people links working
   offices: Offices,
   about: About,
   careers: Careers,
