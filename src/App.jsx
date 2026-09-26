@@ -8,11 +8,15 @@ import Expertise from "./pages/Expertise.jsx";
 import Projects from "./pages/Projects.jsx";
 import Offices from "./pages/Offices.jsx";
 import About from "./pages/About.jsx";
+import Architecture from "./pages/Architecture.jsx";
+import Planning from "./pages/Planning.jsx";
 import Careers from "./pages/Careers.jsx";
 import Contact from "./pages/Contact.jsx";
 
 const PAGES = {
   home: Home,
+  architecture: Architecture,
+  planning: Planning,
   insights: Insights,
   expertise: Expertise,
   projects: Projects,

@@ -10,7 +10,7 @@ export default function Insights() {
   return (
     <>
       <PageHero
-        eyebrow="Research & Insights"
+        eyebrow="Blogs"
         title="What we're *learning.*"
         lede="Research, perspectives and working notes from across architecture, planning, mobility, environment and technology."
         meta={[`${INSIGHTS.length} articles`, `Latest · ${INSIGHTS[0].date}`, "Research · perspective · digital"]}

@@ -14,13 +14,13 @@ export default function Footer({ showCta = true }) {
         {showCta && <Contours className="ftr-contours" count={8} cx={260} cy={760} base={90} step={54} seed={3.1} />}
         {showCta && <div className="ftr-cta">
           <h2>
-            Have a complex challenge?
+            Start your journey with us.
             <br />
-            <em>Let’s shape it together.</em>
+            <em>Let’s design together.</em>
           </h2>
           <Magnetic>
             <Link to="contact" className="btn-lg">
-              Start a conversation <ArrowRight size={18} />
+              Book a consultation <ArrowRight size={18} />
             </Link>
           </Magnetic>
         </div>}

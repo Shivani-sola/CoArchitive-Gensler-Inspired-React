@@ -23,12 +23,11 @@ export const CONTACT = {
 };
 
 export const NAV = [
-  { to: "insights", label: "Research & Insights" },
-  { to: "expertise", label: "Expertise" },
-  { to: "projects", label: "Projects" },
-  { to: "offices", label: "Offices" },
+  { to: "architecture", label: "Architecture" },
+  { to: "planning", label: "Planning" },
+  { to: "insights", label: "Blogs" },
   { to: "about", label: "About" },
-  { to: "careers", label: "Careers" },
+  { to: "careers", label: "Career" },
 ];
 
 const img = (id, w = 1600) =>
@@ -443,4 +442,60 @@ export const VALUES = [
   ["Evidence over assertion", "Positions are backed by data we collected or can trace."],
   ["Built to be used", "Deliverables are made for the people who have to operate them."],
   ["Long horizon", "We plan for the decade after the ribbon, not the week before it."],
+];
+
+// ---------- Architecture & Planning service pages (from the client content brief) ----------
+
+export const ARCH_SERVICES = [
+  ["Residential Plan", "Homes planned around the way a family actually lives — light, air, privacy and room to grow."],
+  ["Commercial Plan", "Offices, retail and mixed-use buildings laid out for efficient operation and a clear public face."],
+  ["Services Plan", "Plumbing, electrical and drainage layouts coordinated with the architecture from the start."],
+  ["Vastu Consultancy", "Vastu principles integrated into planning without compromising function or design."],
+  ["Interior Design", "Interiors that carry the building's idea inside — materials, furniture, lighting and detail."],
+  ["Sanction Drawing", "Drawings prepared to local bye-laws for smooth building-permission approval."],
+  ["3D Modelling", "Accurate digital models to test massing, space and construction before building."],
+  ["3D Elevation", "Facade studies that settle proportion, material and character early."],
+  ["3D Rendering", "Photo-real views that let clients see the finished space before it exists."],
+  ["Turnkey Projects", "Design through construction delivered with our partner construction firms."],
+];
+
+export const ARCH_IDEAS = [
+  ["Filler slabs", "Lighter roofs that use less concrete and steel and keep interiors cooler."],
+  ["Courtyard planning", "Open cores that bring daylight, ventilation and shared space into the plan."],
+  ["Terrace gardening", "Roofs that grow food and greenery while insulating the floors below."],
+  ["Vertical gardening", "Green walls that soften facades and cool the air around them."],
+  ["Landscape design", "Outdoor spaces planned with the building, not left over after it."],
+  ["Jali designs", "Perforated screens that filter sun, keep privacy and let the breeze through."],
+];
+
+export const ARCH_AREAS = [
+  ["Residential", "Independent houses, villas and apartments — from first sketch to handover."],
+  ["Vastu", "Planning guidance that balances tradition with daylight, ventilation and function."],
+  ["Interior", "Complete interior design for homes and workplaces."],
+];
+
+export const PLANNING_SERVICES = [
+  ["Area Development Plan", "Detailed plans that guide growth, land use and infrastructure for a defined area."],
+  ["Master Plan", "Long-term spatial frameworks for cities and towns."],
+  ["Local Area Plan", "Neighbourhood-scale plans that turn city policy into streets, plots and public space."],
+  ["Regional Plan", "Strategies that coordinate settlements, economy and environment across a region."],
+  ["Comprehensive Development Plan", "Integrated plans linking land use, infrastructure, services and investment."],
+];
+
+export const GIS_SERVICES = [
+  ["GIS Mapping", "Base maps, land-use and asset mapping built on reliable spatial data."],
+  ["Spatial Mapping & Analysis", "Suitability, accessibility and change analysis to support planning decisions."],
+];
+
+export const TRANSPORT_SERVICES = [
+  ["Intersection Design", "Safer, more efficient junctions for vehicles, pedestrians and cyclists."],
+  ["Traffic Volume Count Analysis", "Surveys and analysis that establish how a network is used today."],
+  ["Comprehensive Mobility Plan", "City-wide strategies for public transport, walking, cycling and roads."],
+];
+
+export const SOFTWARE = [
+  ["PTV VISSIM", "Microscopic traffic simulation for junctions and corridors."],
+  ["PTV VISUM", "Network-wide transport demand modelling."],
+  ["SUMO", "Open-source simulation of urban mobility."],
+  ["AIMSUN", "Integrated traffic modelling from region to street."],
 ];
