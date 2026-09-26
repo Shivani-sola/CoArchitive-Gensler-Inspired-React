@@ -506,3 +506,30 @@ export const SOFTWARE = [
   ["SUMO", "Open-source simulation of urban mobility."],
   ["AIMSUN", "Integrated traffic modelling from region to street."],
 ];
+
+// About Us (client brief 2.1) — shown on Home and About. Line breaks are the
+// client's own, so each stanza is kept as a list of lines.
+export const ABOUT_STORY = {
+  stanzas: [
+    ["We came together with a shared purpose —", "to bring cities, systems, people, and ideas closer together."],
+    [
+      "A purpose to create not merely for today,",
+      "but with thought for tomorrow.",
+      "To serve the environment, respect the places we inhabit,",
+      "and take meaningful steps towards a more sustainable future.",
+    ],
+    [
+      "We may carry different visions,",
+      "but we dream of a common possibility —",
+      "a world where design responds to people,",
+      "where cities coexist with nature,",
+      "and where every space has a purpose beyond itself.",
+    ],
+    [
+      "Bringing together diverse skills, perspectives, and expertise,",
+      "we believe that the strength of creation lies in collaboration.",
+    ],
+  ],
+  motto: "Different minds. Different visions. One shared purpose.",
+  closing: "Together, we created CoArchitive.",
+};

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ArrowRight, ArrowUpRight, ArrowLeft, Plus } from "lucide-react";
 import { Link } from "../router.jsx";
-import { SectionHead, Contours, ScrollStatement } from "../components/UI.jsx";
+import { SectionHead, Contours, ScrollStatement, AboutStory } from "../components/UI.jsx";
 import AtlasDemo from "../components/AtlasDemo.jsx";
 import {
   Reveal,
@@ -13,11 +13,11 @@ import {
   reducedMotion,
   finePointer,
 } from "../components/Motion.jsx";
-import { HOME, EXPERTISE, PROJECTS, DIRECTORS, TEAM, CONTACT } from "../data.js";
+import { HOME, EXPERTISE, PROJECTS, DIRECTORS, TEAM, CONTACT, ABOUT_STORY } from "../data.js";
 import "../home.css";
 
 // The home page tells one story top to bottom:
-// problem → shift → how it works → capabilities → product → work → results
+// about us → problem → shift → how it works → capabilities → product → work → results
 // → proof → people → questions → call to action.
 
 const scrollToId = (id) =>
@@ -608,6 +608,7 @@ export default function Home() {
     <>
       <Hero />
       <Clients />
+      <AboutStory story={ABOUT_STORY} link="about" />
       <ScrollStatement id="problem" kicker="The problem" text={HOME.problem} />
       <Shift />
       <Steps />

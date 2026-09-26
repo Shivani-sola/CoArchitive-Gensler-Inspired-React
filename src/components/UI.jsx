@@ -219,6 +219,44 @@ export function Principles({ items }) {
   );
 }
 
+// ---------- about story ----------
+
+// The client's About Us text, kept line for line. `link` adds a "read more"
+// under it (used on Home, where the full About page is one click away).
+export function AboutStory({ story, link }) {
+  return (
+    <section className="sec two-col story">
+      <Reveal className="two-col-head">
+        <span className="eyebrow">About us</span>
+        <h2>
+          To bring cities, systems, people and ideas <em>closer together.</em>
+        </h2>
+      </Reveal>
+      <div className="prose">
+        {story.stanzas.map((lines, i) => (
+          <Reveal as="p" key={i} delay={i * 90}>
+            {lines.map((l, j) => (
+              <React.Fragment key={j}>
+                {j > 0 && <br />}
+                {l}
+              </React.Fragment>
+            ))}
+          </Reveal>
+        ))}
+        <Reveal as="p" className="story-motto">{story.motto}</Reveal>
+        <Reveal as="p">{story.closing}</Reveal>
+        {link && (
+          <Reveal>
+            <Link to={link} className="text-link">
+              More about us <ArrowRight size={16} />
+            </Link>
+          </Reveal>
+        )}
+      </div>
+    </section>
+  );
+}
+
 // ---------- scroll statement ----------
 
 // A pinned sentence whose words brighten one by one as the page scrolls.

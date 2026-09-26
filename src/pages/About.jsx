@@ -1,9 +1,9 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "../router.jsx";
-import { PageHero, SectionHead, Stats, Principles, ScrollStatement, HoverList } from "../components/UI.jsx";
+import { PageHero, SectionHead, Stats, Principles, HoverList, AboutStory } from "../components/UI.jsx";
 import { Reveal } from "../components/Motion.jsx";
-import { STATS, VALUES, SECTORS, DIRECTORS, TEAM } from "../data.js";
+import { STATS, VALUES, SECTORS, DIRECTORS, TEAM, ABOUT_STORY } from "../data.js";
 
 // People and About are one page: the story first, then who carries it.
 
@@ -65,36 +65,7 @@ export default function About() {
         meta={["Est. Telangana, India", "8 disciplines", "One integrated team"]}
       />
 
-      <ScrollStatement
-        kicker="Why we exist"
-        text="Different minds. Different visions. *One shared purpose.*"
-      />
-
-      <section className="sec two-col">
-        <Reveal className="two-col-head">
-          <span className="eyebrow">Our story</span>
-          <h2>
-            To bring cities, systems, people and ideas <em>closer together.</em>
-          </h2>
-        </Reveal>
-        <div className="prose">
-          <Reveal as="p">
-            We came together with a shared purpose — to bring cities, systems, people, and ideas
-            closer together. A purpose to create not merely for today, but with thought for
-            tomorrow. To serve the environment, respect the places we inhabit, and take meaningful
-            steps towards a more sustainable future.
-          </Reveal>
-          <Reveal as="p" delay={90}>
-            We may carry different visions, but we dream of a common possibility — a world where
-            design responds to people, where cities coexist with nature, and where every space has a
-            purpose beyond itself.
-          </Reveal>
-          <Reveal as="p" delay={180}>
-            Bringing together diverse skills, perspectives, and expertise, we believe that the
-            strength of creation lies in collaboration. Together, we created CoArchitive.
-          </Reveal>
-        </div>
-      </section>
+      <AboutStory story={ABOUT_STORY} />
 
       <section className="sec">
         <SectionHead kicker="Directors & team" title="Different expertise. *Shared purpose.*" />
