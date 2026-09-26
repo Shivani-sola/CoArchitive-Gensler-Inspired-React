@@ -1,7 +1,7 @@
 import React from "react";
 import { PageHero, SectionHead, Principles, HoverList } from "../components/UI.jsx";
 import { Reveal } from "../components/Motion.jsx";
-import { ROLES, VALUES, CONTACT, HIRING, EXPERTISE } from "../data.js";
+import { ROLES, VALUES, CONTACT, HIRING, EXPERTISE, WORK_WITH_US } from "../data.js";
 
 // each role borrows the photograph of the discipline it sits in
 const roleImg = (team) =>
@@ -15,8 +15,17 @@ export default function Careers() {
         title="Build across *boundaries.*"
         lede="If you want to work next to people whose training is nothing like yours, this is the right practice."
         img="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2000&q=85"
-        meta={[`${ROLES.length} open roles`, "India · hybrid", "Every discipline welcome"]}
+        meta={[`${ROLES.length} open roles`, "India · hybrid", "Jobs · internships · freelancing"]}
       />
+
+      <section className="sec grey">
+        <SectionHead kicker="Ways to join" title="Jobs, internships *and freelancing*" />
+        <Principles items={WORK_WITH_US} />
+        <Reveal as="p" className="note">
+          To apply for an internship or freelance work, write to{" "}
+          <span className="note-mail">{CONTACT.email}</span> with your CV and portfolio.
+        </Reveal>
+      </section>
 
       <section className="sec">
         <SectionHead kicker="Open roles" title="Where we're *hiring*" />

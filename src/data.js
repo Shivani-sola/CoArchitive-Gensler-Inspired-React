@@ -427,6 +427,13 @@ export const SECTORS = [
 ];
 
 // PLACEHOLDER: a typical hiring process, to be confirmed by the practice.
+// The three ways in, per the client brief: jobs, internships, freelancing.
+export const WORK_WITH_US = [
+  ["Job opportunities", "Full-time roles across architecture, planning, engineering and GIS — see the openings below."],
+  ["Internships", "Hands-on placements for architecture, planning and engineering students, working on live projects."],
+  ["Freelancing", "Independent designers, visualisers and specialists who collaborate with us project by project."],
+];
+
 export const HIRING = [
   ["Apply", "Send a CV and two or three pieces of work you are proud of."],
   ["Conversation", "A relaxed call with a director about your work and interests."],
