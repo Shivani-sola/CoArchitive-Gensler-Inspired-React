@@ -9,7 +9,7 @@ import { STATS, VALUES, SECTORS, DIRECTORS, TEAM, ABOUT_STORY } from "../data.js
 
 // Portrait stacks the real photo over a placeholder. If public/team/<slug>.jpg
 // is missing the browser just paints the layer beneath it.
-function Person({ name, role, photo, fallback, delay }) {
+function Person({ name, role, quals, bio, photo, fallback, delay }) {
   return (
     <Reveal as="article" variant="clip" className="person" delay={delay}>
       <div
@@ -20,6 +20,21 @@ function Person({ name, role, photo, fallback, delay }) {
       />
       <h3>{name}</h3>
       {role && <span>{role}</span>}
+      {quals && (
+        <ul className="person-quals">
+          {quals.map((q) => (
+            <li key={q}>{q}</li>
+          ))}
+        </ul>
+      )}
+      {bio && (
+        <details className="person-bio">
+          <summary>Read profile</summary>
+          {bio.map((para, i) => (
+            <p key={i}>{para}</p>
+          ))}
+        </details>
+      )}
     </Reveal>
   );
 }
@@ -77,8 +92,8 @@ export default function About() {
         />
         <PeopleGroup
           index="02"
-          label="Team"
-          blurb="Specialists who carry the work from first brief to delivery."
+          label="Our team"
+          blurb="Expert members who carry the work from first brief to delivery."
           people={TEAM}
         >
           <Link to="careers" className="person-join">

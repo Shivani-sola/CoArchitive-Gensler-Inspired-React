@@ -268,10 +268,36 @@ const portrait = (slug, fallbackId) => ({
 const DIRECTOR_ROLE = "Director";
 const MEMBER_ROLE = "Expert Member";
 
+// quals and bio come from the client content brief (2.3). A person without a
+// bio shows qualifications only; fill `bio` in when the text arrives.
 export const DIRECTORS = [
-  { name: "Aneesha Jayaram", role: DIRECTOR_ROLE, ...portrait("aneesha-jayaram", "1573496359142-b8d87734a5a2") },
-  { name: "Shreedha Lanjewar", role: DIRECTOR_ROLE, ...portrait("shreedha-lanjewar", "1580489944761-15a19d654956") },
-  { name: "Nakka Sunny", role: DIRECTOR_ROLE, ...portrait("nakka-sunny", "1560250097-0b93528c311a") },
+  {
+    name: "Aneesha Jayaram",
+    role: DIRECTOR_ROLE,
+    quals: ["M.Tech — Urban Planning", "B.Tech — Civil Engineering"],
+    ...portrait("aneesha-jayaram", "1573496359142-b8d87734a5a2"),
+  },
+  {
+    name: "Shreedha Lanjewar",
+    role: DIRECTOR_ROLE,
+    quals: ["PhD (pursuing)", "M.Plan — Environmental Planning", "B.Arch — Architecture"],
+    bio: [
+      "Shreedha Lanjewar is an Architect and Environmental Planner with an interdisciplinary approach to architecture, and urban planning. With experience spanning architectural practice, regional planning, infrastructure, GIS-based analysis, and research, she brings together design thinking and spatial planning to address complex urban and environmental challenges.",
+      "Her work focuses on creating context-responsive solutions that connect people, places, infrastructure, and the environment. As a researcher and practitioner, she is particularly interested in sustainable development, decarbonisation, climate-responsive planning, and the integration of environmental considerations into spatial development.",
+    ],
+    ...portrait("shreedha-lanjewar", "1580489944761-15a19d654956"),
+  },
+  {
+    name: "Nakka Sunny",
+    role: DIRECTOR_ROLE,
+    quals: ["M.Plan — Environmental Planning", "B.Tech — Civil Engineering"],
+    bio: [
+      "Nakka Sunny is an Environmental Planner and Civil Engineer with an interdisciplinary approach to urban development, environmental management, and sustainable infrastructure. His professional experience spans environmental planning, climate-responsive urban development, GIS and spatial analysis, infrastructure assessment, capacity building, stakeholder engagement, and project implementation.",
+      "As a practitioner and project professional, he has led planning and coordination activities for large-scale capacity-building and IEC initiatives across Urban Local Bodies in Andhra Pradesh, working with municipal officials, NGOs, associations, and other stakeholders. His areas of interest include climate-resilient urban planning, environmental sustainability, geospatial planning, disaster resilience, urban climate adaptation, and sustainable waste management.",
+      "With a combination of technical expertise, research experience, and project leadership, he aims to contribute to planning and development initiatives that are environmentally responsive, socially inclusive, and capable of creating long-term urban resilience.",
+    ],
+    ...portrait("nakka-sunny", "1560250097-0b93528c311a"),
+  },
 ];
 
 export const TEAM = [

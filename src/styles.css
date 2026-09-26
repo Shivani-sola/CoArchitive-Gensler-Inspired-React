@@ -416,6 +416,20 @@ p { margin: 0; }
   text-transform: uppercase;
   color: var(--muted);
 }
+.person-quals { margin: 12px 0 0; padding: 0; list-style: none; font-size: 14px; line-height: 1.55; color: #3a3b39; }
+.person-bio { margin-top: 14px; }
+.person-bio summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green);
+  border-bottom: 1px solid currentColor;
+  list-style: none;
+}
+.person-bio summary::-webkit-details-marker { display: none; }
+.person-bio[open] summary { margin-bottom: 6px; }
+.person-bio p { margin-top: 12px; font-size: 14px; line-height: 1.65; color: #3a3b39; text-align: left; }
 
 /* ---------- footer ---------- */
 
