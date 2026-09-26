@@ -492,20 +492,79 @@ export const ARCH_SERVICES = [
   { title: "Turnkey Projects", body: "Design through construction, delivered in collaboration with our partner construction firm.", img: img("1541888946425-d81bb19240f5", 900) },
 ];
 
-export const ARCH_IDEAS = [
-  ["Filler slabs", "Lighter roofs that use less concrete and steel and keep interiors cooler."],
-  ["Courtyard planning", "Open cores that bring daylight, ventilation and shared space into the plan."],
-  ["Terrace gardening", "Roofs that grow food and greenery while insulating the floors below."],
-  ["Vertical gardening", "Green walls that soften facades and cool the air around them."],
-  ["Landscape design", "Outdoor spaces planned with the building, not left over after it."],
-  ["Jali designs", "Perforated screens that filter sun, keep privacy and let the breeze through."],
+// ---------- Architecture page (client brief 3) ----------
+// DRAFT copy: the brief gives the topics; wording to be confirmed by the client.
+
+export const ARCH_PHILOSOPHY = [
+  "For us, architecture is not only about how a building looks — it is about how it lives. How light moves through a room across the day, how air flows without a fan, how a home stays cool in May and holds warmth in December.",
+  "We design from climate and context first. Orientation, shade, ventilation and local materials shape the plan before anything else, so comfort is built into the structure rather than added with machines.",
+  "What we bring is a return to ideas that have always worked in Indian buildings — courtyards, jalis, filler slabs, green roofs — combined with present-day engineering, 3D design and careful detailing. The result is architecture that is sustainable by design, not by add-on.",
 ];
 
-export const ARCH_AREAS = [
-  ["Residential", "Independent houses, villas and apartments — from first sketch to handover."],
-  ["Vastu", "Planning guidance that balances tradition with daylight, ventilation and function."],
-  ["Interior", "Complete interior design for homes and workplaces."],
+export const ARCH_IDEAS = [
+  ["Filler slabs", "Clay pots or tiles replace concrete in the non-structural part of the roof slab — using up to a third less concrete and steel, cutting cost, and keeping the rooms below cooler."],
+  ["Courtyard planning", "An open core at the heart of the plan draws daylight and cross-ventilation deep into the house and gives the family a private outdoor room."],
+  ["Terrace gardening", "Planted roofs grow food and greenery, absorb rainwater and insulate the floor below from the summer sun."],
+  ["Vertical gardening", "Green walls and planters on facades and balconies soften the building, filter dust and cool the air around it."],
+  ["Landscape design", "Gardens, paving, trees and water planned together with the building, so outdoor space is designed rather than left over."],
+  ["Jali designs", "Perforated screens in brick, stone or concrete filter harsh sun, keep privacy and let the breeze pass through — with a play of light and shadow no glass can give."],
 ];
+
+// SAMPLE entries: replace with the client's real projects (title, location,
+// status "Completed" | "Ongoing", description, photo). `location` is optional.
+export const RESIDENTIAL_PROJECTS = [
+  {
+    title: "Independent House",
+    location: "",
+    status: "Completed",
+    body: "A family home planned around a central courtyard, with jali screens on the west face and a terrace garden.",
+    img: img("1600585154340-be6161a56a0c", 1200),
+  },
+  {
+    title: "Contemporary Villa",
+    location: "",
+    status: "Ongoing",
+    body: "A two-storey villa with deep shaded verandahs, filler-slab roofs and landscaped open spaces.",
+    img: img("1600596542815-ffad4c1539a9", 1200),
+  },
+  {
+    title: "Duplex Residence",
+    location: "",
+    status: "Ongoing",
+    body: "A compact duplex that uses a double-height living space and cross-ventilation to stay cool without air-conditioning.",
+    img: img("1600566753190-17f0baa2a6c3", 1200),
+  },
+];
+
+export const VASTU = {
+  intro: [
+    "Vastu Shastra is a traditional Indian system of planning that aligns a building with direction, sunlight and the natural elements. Many of its principles match what good climate-responsive design already asks for — morning light in the kitchen, a cool and heavy south-west, an open and light north-east.",
+    "We integrate Vastu into the plan from the first sketch, so the home is Vastu-compliant without giving up function, light, ventilation or design quality. We also review existing plans and suggest practical corrections.",
+  ],
+  points: [
+    ["Orientation & entrance", "Placing the main entrance and plot orientation for the best light, access and energy of the site."],
+    ["Room placement", "Kitchen, bedrooms, pooja room, toilets and staircases positioned by direction and use."],
+    ["Light & ventilation", "Openings, courtyards and heights planned so the home stays bright and well aired."],
+    ["Plan review", "Vastu assessment of existing or proposed plans, with practical design corrections."],
+  ],
+};
+
+export const INTERIOR = {
+  intro:
+    "Interiors that carry the idea of the building inside — spaces planned around how you live, with materials, furniture, lighting and detail chosen together. From a single room to a complete home or workplace, we take interiors from concept and 3D views to execution.",
+  points: [
+    ["Space planning", "Furniture layouts and storage that make every square foot work."],
+    ["Materials & finishes", "Natural, durable and locally sourced materials chosen for climate and budget."],
+    ["Lighting design", "Daylight first, then layered artificial light for mood and task."],
+    ["Custom furniture", "Joinery, wardrobes, kitchens and fixtures designed to fit."],
+  ],
+  gallery: [
+    img("1600210492486-724fe5c67fb0", 1200),
+    img("1586023492125-27b2c045efd7", 900),
+    img("1600607687939-ce8a6c25118c", 900),
+    img("1618221195710-dd6b41faaea6", 1200),
+  ],
+};
 
 export const PLANNING_SERVICES = [
   { title: "Area Development Plan", body: "Detailed plans that guide growth, land use and infrastructure for a defined area.", img: img("1480714378408-67cf0d13bc1b", 900) },
