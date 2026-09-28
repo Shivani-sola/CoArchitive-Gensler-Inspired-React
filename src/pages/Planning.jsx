@@ -9,7 +9,7 @@ export default function Planning() {
         eyebrow="Planning"
         title="Cities and regions planned *as one system.*"
         lede="Urban and regional planning, GIS and transportation brought together — so growth, land and movement are decided as one."
-        img="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=2200&q=85"
+        img="https://images.unsplash.com/photo-1717700299581-c2fc3fad4ee8?auto=format&fit=crop&w=2200&q=85"
         meta={["Urban & regional planning", "GIS & spatial mapping", "Transportation"]}
       />
 

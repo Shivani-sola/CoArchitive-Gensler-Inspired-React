@@ -102,7 +102,7 @@ function Hero() {
           <div className="h-par" style={{ "--s": 70 }}>
             <div className="h-frame">
               <img
-                src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1400&q=80"
+                src="https://images.unsplash.com/photo-1609056615012-27c81a0df7b0?auto=format&fit=crop&w=1400&q=80"
                 alt=""
                 fetchpriority="high"
                 decoding="async"

@@ -32,6 +32,10 @@ export const NAV = [
 const img = (id, w = 1600) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=85`;
 
+// Unsplash+ images sit on a different host and keep the premium_photo- prefix.
+const pimg = (id, w = 1600) =>
+  `https://plus.unsplash.com/premium_photo-${id}?auto=format&fit=crop&w=${w}&q=85`;
+
 export const EXPERTISE = [
   {
     no: "01",
@@ -39,7 +43,7 @@ export const EXPERTISE = [
     title: "Architecture & Design",
     short: "Buildings and interiors that earn their place.",
     body: "Architecture, interiors, working drawings, visualization, renovation and built-environment design — carried from concept through construction documentation.",
-    img: img("1497366754035-f200968a6e72"),
+    img: pimg("1764385676132-73517be70353"),
   },
   {
     no: "02",
@@ -47,7 +51,7 @@ export const EXPERTISE = [
     title: "Urban & Regional Planning",
     short: "Frameworks that let cities grow coherently.",
     body: "Master plans, development plans, urban design, land-use studies and strategic planning for cities, regions and special development areas.",
-    img: img("1477959858617-67f85cf4f1df"),
+    img: img("1577896695705-07e630380ab6"),
   },
   {
     no: "03",
@@ -63,7 +67,7 @@ export const EXPERTISE = [
     title: "Environment & Sustainability",
     short: "Designing for the climate that is arriving.",
     body: "Environmental planning, sustainability advisory, climate resilience, water systems and solid-waste management across the project lifecycle.",
-    img: img("1441974231531-c6227db76b6e"),
+    img: pimg("1678189496886-0e568e51601b"),
   },
   {
     no: "05",
@@ -299,8 +303,8 @@ export const ARCH_SERVICES = [
   { title: "Commercial Plan", body: "Offices, retail and mixed-use buildings laid out for efficient operation and a clear public face.", img: img("1486406146926-c627a92ad1ab", 900) },
   { title: "Services Plan", body: "Plumbing, electrical and drainage layouts coordinated with the architecture from the start.", img: img("1504307651254-35680f356dfd", 900) },
   { title: "Vastu Consultancy", body: "Vastu principles integrated into planning without compromising function or design.", img: img("1558036117-15d82a90b9b1", 900) },
-  { title: "Interior Design", body: "Interiors that carry the building's idea inside — materials, furniture, lighting and detail.", img: img("1600210492486-724fe5c67fb0", 900) },
-  { title: "Sanction Drawing", body: "Drawings prepared to local bye-laws for smooth building-permission approval.", img: img("1503387762-592deb58ef4e", 900) },
+  { title: "Interior Design", body: "Interiors that carry the building's idea inside — materials, furniture, lighting and detail.", img: img("1790020391176-f433c9713085", 900) },
+  { title: "Sanction Drawing", body: "Drawings prepared to local bye-laws for smooth building-permission approval.", img: img("1712697236422-cf48f06547f1", 900) },
   { title: "3D Modelling", body: "Accurate digital models to test massing, space and construction before building.", img: img("1600566753190-17f0baa2a6c3", 900) },
   { title: "3D Elevation", body: "Facade studies that settle proportion, material and character early.", img: img("1545324418-cc1a3fa10c00", 900) },
   { title: "3D Rendering", body: "Photo-real views that let clients see the finished space before it exists.", img: img("1600596542815-ffad4c1539a9", 900) },
@@ -374,7 +378,7 @@ export const INTERIOR = {
     ["Custom furniture", "Joinery, wardrobes, kitchens and fixtures designed to fit."],
   ],
   gallery: [
-    img("1600210492486-724fe5c67fb0", 1200),
+    img("1790020391176-f433c9713085", 1200),
     img("1586023492125-27b2c045efd7", 900),
     img("1600607687939-ce8a6c25118c", 900),
     img("1618221195710-dd6b41faaea6", 1200),
@@ -382,7 +386,7 @@ export const INTERIOR = {
 };
 
 export const PLANNING_SERVICES = [
-  { title: "Area Development Plan", body: "Detailed plans that guide growth, land use and infrastructure for a defined area.", img: img("1480714378408-67cf0d13bc1b", 900) },
+  { title: "Area Development Plan", body: "Detailed plans that guide growth, land use and infrastructure for a defined area.", img: img("1594383274581-86711b1c4265", 900) },
   { title: "Master Plan", body: "Long-term spatial frameworks for cities and towns.", img: img("1477959858617-67f85cf4f1df", 900) },
   { title: "Local Area Plan", body: "Neighbourhood-scale plans that turn city policy into streets, plots and public space.", img: img("1542744173-8e7e53415bb0", 900) },
   { title: "Regional Plan", body: "Strategies that coordinate settlements, economy and environment across a region.", img: img("1532601224476-15c79f2f7a51", 900) },

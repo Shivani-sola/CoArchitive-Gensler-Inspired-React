@@ -37,7 +37,7 @@ export default function Architecture() {
         eyebrow="Architecture"
         title="Spaces designed for people, *built for tomorrow.*"
         lede="Architecture that responds to climate, context and the people who use it — from a single home to a complete development."
-        img="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2200&q=85"
+        img="https://images.unsplash.com/photo-1789303225087-8307ece66da3?auto=format&fit=crop&w=2200&q=85"
         meta={["Residential · Vastu · Interior", "Climate-responsive design", "Concept → turnkey"]}
       />
 
