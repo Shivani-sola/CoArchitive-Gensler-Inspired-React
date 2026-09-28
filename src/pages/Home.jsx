@@ -1,24 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ArrowRight, ArrowUpRight, ArrowLeft, Plus } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Plus } from "lucide-react";
 import { Link } from "../router.jsx";
 import { SectionHead, Contours, ScrollStatement, AboutStory, ConsultPopup } from "../components/UI.jsx";
 import AtlasDemo from "../components/AtlasDemo.jsx";
 import {
   Reveal,
-  Counter,
   Magnetic,
   useScrollProgress,
-  useScrollFrame,
   useTilt,
   reducedMotion,
   finePointer,
 } from "../components/Motion.jsx";
-import { HOME, PROJECTS, DIRECTORS, TEAM, CONTACT, ABOUT_STORY, SERVICE_GROUPS } from "../data.js";
+import { HOME, DIRECTORS, TEAM, CONTACT, ABOUT_STORY, SERVICE_GROUPS } from "../data.js";
 import "../home.css";
 
 // The home page tells one story top to bottom:
-// about us → problem → shift → how it works → services → product → work → results
-// → proof → people → questions → call to action.
+// about us → problem → shift → how it works → services → product → people
+// → questions → call to action.
 
 const scrollToId = (id) =>
   document.getElementById(id)?.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth" });
@@ -94,8 +92,8 @@ function Hero() {
                 Start a project <ArrowRight size={18} />
               </Link>
             </Magnetic>
-            <button type="button" className="h-ghost" onClick={() => scrollToId("work")}>
-              See our work
+            <button type="button" className="h-ghost" onClick={() => scrollToId("services")}>
+              See our services
             </button>
           </div>
         </div>
@@ -147,26 +145,6 @@ function Hero() {
         <button type="button" onClick={() => scrollToId("problem")}>
           Scroll <i />
         </button>
-      </div>
-    </section>
-  );
-}
-
-// ---------- 2. clients ----------
-
-function Clients() {
-  const list = HOME.clients;
-  return (
-    <section className="h-clients" aria-label="Clients">
-      <p>Trusted by public agencies, developers and operators</p>
-      <div className="h-marquee">
-        <div className="h-marquee-track">
-          {[...list, ...list].map((c, i) => (
-            <span key={i} aria-hidden={i >= list.length}>
-              {c}
-            </span>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -281,7 +259,7 @@ function DiscCard({ no, title, short, img, to }) {
 
 function Services() {
   return (
-    <section className="sec dark h-caps">
+    <section className="sec dark h-caps" id="services">
       <SectionHead
         kicker="Our services"
         title="Architecture, planning, *GIS and transport.*"
@@ -333,166 +311,6 @@ function Product() {
   );
 }
 
-// ---------- 8. work: pinned horizontal scroll on desktop ----------
-
-function Work() {
-  const sec = useRef(null);
-  const track = useRef(null);
-  const dist = useRef(0);
-  const [pinned, setPinned] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 900px) and (prefers-reduced-motion: no-preference)");
-    const update = () => setPinned(mq.matches);
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
-  }, []);
-
-  // measure only on resize; the scroll handler just reads the cached distance
-  useEffect(() => {
-    const s = sec.current;
-    const t = track.current;
-    if (!pinned) {
-      s.style.height = "";
-      t.style.transform = "";
-      return;
-    }
-    const measure = () => {
-      dist.current = Math.max(0, t.scrollWidth - window.innerWidth);
-      s.style.height = `${window.innerHeight + dist.current}px`;
-    };
-    measure();
-    const ro = new ResizeObserver(measure);
-    ro.observe(t);
-    window.addEventListener("resize", measure);
-    return () => {
-      ro.disconnect();
-      window.removeEventListener("resize", measure);
-    };
-  }, [pinned]);
-
-  useScrollFrame(() => {
-    if (!pinned) return;
-    const r = sec.current.getBoundingClientRect();
-    const span = Math.max(1, r.height - window.innerHeight);
-    const p = Math.min(1, Math.max(0, -r.top / span));
-    track.current.style.transform = `translate3d(${-p * dist.current}px, 0, 0)`;
-    sec.current.style.setProperty("--p", p.toFixed(4));
-  });
-
-  return (
-    <section id="work" className={pinned ? "h-work pinned" : "h-work"} ref={sec}>
-      <div className="h-work-stage">
-        <div className="h-work-track" ref={track}>
-          <div className="h-work-intro">
-            <span className="eyebrow">Selected work</span>
-            <h2>
-              Work that <em>holds together.</em>
-            </h2>
-            <p>Six projects where planning, design and data were delivered as one.</p>
-            <Link to="projects" className="text-link">
-              All projects <ArrowRight size={16} />
-            </Link>
-          </div>
-
-          {PROJECTS.map((p, i) => (
-            <Link key={p.slug} to="projects" className="h-wcard">
-              <div className="h-wcard-media">
-                <img src={p.img.replace("w=1600", "w=1100")} alt="" loading="lazy" decoding="async" />
-              </div>
-              <div className="h-wcard-meta">
-                <span>{String(i + 1).padStart(2, "0")}</span>
-                <span>{p.meta}</span>
-              </div>
-              <h3>{p.title}</h3>
-            </Link>
-          ))}
-
-          <Link to="projects" className="h-work-end">
-            <span>See every project</span>
-            <ArrowUpRight size={40} />
-          </Link>
-        </div>
-        <div className="h-work-progress" aria-hidden="true">
-          <i />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ---------- 9. results ----------
-
-function Results() {
-  return (
-    <section className="sec h-results">
-      <div className="h-results-head">
-        <Reveal as="span" className="eyebrow">
-          Results
-        </Reveal>
-        <Reveal as="h2" delay={80}>
-          Measured in places <em>that work.</em>
-        </Reveal>
-      </div>
-      <div className="h-results-grid">
-        {HOME.results.map((r, i) => (
-          <Reveal key={r.label} className="h-stat" delay={i * 90}>
-            <b>
-              <Counter to={r.to} decimals={r.decimals} suffix={r.suffix} />
-            </b>
-            <span>{r.label}</span>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-// ---------- 10. testimonials ----------
-
-function Testimonials() {
-  const [i, setI] = useState(0);
-  const list = HOME.testimonials;
-  const go = (d) => setI((i + d + list.length) % list.length);
-
-  // every quote shares one grid cell, so the block is as tall as the longest
-  // quote and nothing below jumps when they change
-  return (
-    <section className="sec grey h-quotes">
-      <div className="h-quotes-inner">
-        <span className="eyebrow">What clients say</span>
-        <div className="h-quote-stack" aria-live="polite">
-          {list.map((t, k) => (
-            <figure key={k} className={k === i ? "h-quote on" : "h-quote"} aria-hidden={k !== i}>
-              <blockquote>“{t.quote}”</blockquote>
-              <figcaption>
-                <strong>{t.name}</strong>
-                <span>{t.org}</span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-        <div className="h-quotes-nav">
-          <span className="h-quotes-count">
-            {String(i + 1).padStart(2, "0")} / {String(list.length).padStart(2, "0")}
-          </span>
-          <div className="h-quotes-dots" aria-hidden="true">
-            {list.map((_, k) => (
-              <i key={k} className={k === i ? "on" : ""} />
-            ))}
-          </div>
-          <button type="button" aria-label="Previous testimonial" onClick={() => go(-1)}>
-            <ArrowLeft size={18} />
-          </button>
-          <button type="button" aria-label="Next testimonial" onClick={() => go(1)}>
-            <ArrowRight size={18} />
-          </button>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 // ---------- 11. people ----------
 
@@ -608,16 +426,12 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Clients />
       <AboutStory story={ABOUT_STORY} link="about" />
       <ScrollStatement id="problem" kicker="The problem" text={HOME.problem} />
       <Shift />
       <Steps />
       <Services />
       <Product />
-      <Work />
-      <Results />
-      <Testimonials />
       <People />
       <Faq />
       <FinalCta />

@@ -25,35 +25,12 @@ export const CONTACT = {
 export const NAV = [
   { to: "architecture", label: "Architecture" },
   { to: "planning", label: "Planning" },
-  { to: "insights", label: "Blogs" },
   { to: "about", label: "About" },
   { to: "careers", label: "Career" },
 ];
 
 const img = (id, w = 1600) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=85`;
-
-export const FEATURE = {
-  eyebrow: "Research",
-  title: "New thinking for resilient regions",
-  blurb:
-    "How architecture, planning and spatial intelligence work together — from the first question a client asks to the systems that keep a place running years after handover.",
-  cta: "Read the research",
-  to: "insights",
-  img: img("1487958449943-2429e8be8625", 2400),
-};
-
-// The seven fields the practice spans — pulled out of the intro sentence so they
-// can be scanned rather than read.
-export const FIELDS = [
-  "Architecture",
-  "Urban & Regional Planning",
-  "Transportation",
-  "Environment",
-  "Geospatial Technologies",
-  "Research",
-  "Digital Innovation",
-];
 
 export const EXPERTISE = [
   {
@@ -120,130 +97,6 @@ export const EXPERTISE = [
     body: "Training, workshops, IEC campaigns, community engagement, institutional partnerships and knowledge programs.",
     img: img("1523240795612-9a054b0db644"),
   },
-];
-
-export const PROJECTS = [
-  {
-    slug: "connected-city",
-    category: "Urban Systems",
-    title: "Connected City Framework",
-    meta: "Urban Planning / Mobility",
-    blurb:
-      "A regional growth framework that ties land use, transit and public realm investment to a single phased delivery plan.",
-    img: img("1477959858617-67f85cf4f1df"),
-  },
-  {
-    slug: "civic-hub",
-    category: "Built Environment",
-    title: "Future Workplace & Civic Hub",
-    meta: "Architecture / Interior",
-    blurb:
-      "A mixed civic and workplace building designed around daylight, adaptability and a ground floor that belongs to the street.",
-    img: img("1497366754035-f200968a6e72"),
-  },
-  {
-    slug: "regional-mobility",
-    category: "Mobility",
-    title: "Regional Mobility Strategy",
-    meta: "Transport / Infrastructure",
-    blurb:
-      "Multimodal network strategy combining corridor modelling, household survey data and staged infrastructure investment.",
-    img: img("1519501025264-65ba15a82390"),
-  },
-  {
-    slug: "spatial-platform",
-    category: "Digital",
-    title: "Spatial Intelligence Platform",
-    meta: "GIS / AI / Digital Twin",
-    blurb:
-      "A decision platform that puts asset, demographic and environmental layers in one place for day-to-day planning teams.",
-    img: img("1551288049-bebda4e38f71"),
-  },
-  {
-    slug: "watershed",
-    category: "Environment",
-    title: "Watershed Resilience Plan",
-    meta: "Environment / Water Systems",
-    blurb:
-      "Catchment-scale flood and water-security planning, from hydrological modelling to community-level interventions.",
-    img: img("1441974231531-c6227db76b6e"),
-  },
-  {
-    slug: "transit-district",
-    category: "Urban Systems",
-    title: "Transit-Oriented District",
-    meta: "Planning / Urban Design",
-    blurb:
-      "Station-area redevelopment framework balancing density, walkability and existing neighbourhood character.",
-    img: img("1444723121867-7a241cacace9"),
-  },
-];
-
-export const PROJECT_FILTERS = [
-  "All",
-  ...Array.from(new Set(PROJECTS.map((p) => p.category))),
-];
-
-export const INSIGHTS = [
-  {
-    slug: "resilient-places",
-    category: "Research",
-    date: "March 2026",
-    title: "Designing resilient places with data",
-    blurb:
-      "How architecture, planning and spatial intelligence can work together from the first question to delivery.",
-    img: img("1470071459604-3b5ec3a7fe05"),
-  },
-  {
-    slug: "mobility-beyond-movement",
-    category: "Perspective",
-    date: "February 2026",
-    title: "Mobility beyond movement",
-    blurb:
-      "A systems view of transport, land use, access and the public realm — and why they fail when planned separately.",
-    img: img("1519501025264-65ba15a82390"),
-  },
-  {
-    slug: "maps-to-decisions",
-    category: "Digital",
-    date: "January 2026",
-    title: "From maps to decisions",
-    blurb:
-      "Turning geospatial information into practical tools that planning and infrastructure teams use every week.",
-    img: img("1451187580459-43490279c0fa"),
-  },
-  {
-    slug: "climate-first-masterplans",
-    category: "Sustainability",
-    date: "December 2025",
-    title: "Climate-first masterplanning",
-    blurb:
-      "What changes when heat, water and energy constraints set the plan instead of being checked at the end.",
-    img: img("1441974231531-c6227db76b6e"),
-  },
-  {
-    slug: "ai-in-practice",
-    category: "Digital",
-    date: "November 2025",
-    title: "AI in a design practice, honestly assessed",
-    blurb:
-      "Where machine learning genuinely accelerates our work, and where it quietly adds risk.",
-    img: img("1516110833967-0b5716ca1387"),
-  },
-  {
-    slug: "small-cities",
-    category: "Research",
-    date: "October 2025",
-    title: "The case for small cities",
-    blurb:
-      "Growth pressure is moving to second- and third-tier centres. Their planning capacity has not moved with it.",
-    img: img("1480714378408-67cf0d13bc1b"),
-  },
-];
-
-export const INSIGHT_FILTERS = [
-  "All",
-  ...Array.from(new Set(INSIGHTS.map((i) => i.category))),
 ];
 
 export const STATS = [
@@ -340,16 +193,6 @@ export const ROLES = [
 export const HOME = {
   heroWords: ["system", "region", "network", "city"],
 
-  clients: [
-    "Northfield Development Authority",
-    "Deccan Transit Partners",
-    "Riverbend Municipal Council",
-    "Kestrel Infrastructure",
-    "Meridian Housing Trust",
-    "Saffron Grid Energy",
-    "Lakeside Smart City Ltd.",
-  ],
-
   problem:
     // *word* is set in the italic accent face
     "Most places are planned in *pieces.* Roads by one team, land by another, data by a third — and the gaps between them are where good projects quietly *fail.*",
@@ -388,34 +231,6 @@ export const HOME = {
       title: "Deliver and keep it running",
       body: "Phased delivery plans, working drawings and live digital tools that the client’s own team keeps using after handover.",
       img: img("1519501025264-65ba15a82390", 1400),
-    },
-  ],
-
-  results: [
-    { to: 46, label: "Projects delivered" },
-    { to: 14, label: "Cities & districts planned" },
-    { to: 3.2, decimals: 1, suffix: "M", label: "Residents in planned areas" },
-    { to: 8, label: "Disciplines, one team" },
-  ],
-
-  testimonials: [
-    {
-      quote:
-        "For the first time our transport, land-use and utilities teams were looking at the same plan. Decisions that used to take a quarter took a fortnight.",
-      name: "Planning Commissioner",
-      org: "Northfield Development Authority",
-    },
-    {
-      quote:
-        "They didn’t hand us a report and leave. The spatial platform is still the first thing our engineers open every morning.",
-      name: "Chief Engineer",
-      org: "Riverbend Municipal Council",
-    },
-    {
-      quote:
-        "Architecture and infrastructure arrived as one proposal, already reconciled. That saved us a full redesign cycle.",
-      name: "Head of Development",
-      org: "Meridian Housing Trust",
     },
   ],
 

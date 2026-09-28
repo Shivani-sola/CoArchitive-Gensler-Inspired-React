@@ -76,7 +76,7 @@ export default function Footer({ showCta = true }) {
       </div>
 
       <div className="ftr-base">
-        <Logo size={34} />
+        <Logo size={46} />
         <span>{TAGLINE}</span>
         <span>© 2026 {COMPANY}</span>
         <span>Privacy · Terms · Ethics</span>

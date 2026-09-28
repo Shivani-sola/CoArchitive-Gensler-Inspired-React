@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Plus } from "lucide-react";
-import { PageHero, SectionHead, HoverList } from "../components/UI.jsx";
+import { PageHero } from "../components/UI.jsx";
 import { Reveal } from "../components/Motion.jsx";
-import { EXPERTISE, PROJECTS } from "../data.js";
+import { EXPERTISE } from "../data.js";
 
 export default function Expertise() {
   const [active, setActive] = useState(0);
@@ -65,11 +65,6 @@ export default function Expertise() {
             );
           })}
         </div>
-      </section>
-
-      <section className="sec grey">
-        <SectionHead kicker="In practice" title="Where the disciplines *meet*" link="projects" linkLabel="All projects" />
-        <HoverList items={PROJECTS.map((p) => ({ title: p.title, meta: p.meta, img: p.img.replace("w=1600", "w=900"), to: "projects" }))} />
       </section>
     </>
   );

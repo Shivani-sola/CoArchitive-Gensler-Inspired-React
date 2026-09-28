@@ -34,7 +34,7 @@ export default function Header({ route }) {
     <>
       <header className={cls}>
         <Link to="home" className="logo-link" onClick={close}>
-          <Logo size={scrolled ? 34 : 40} />
+          <Logo size={scrolled ? 44 : 52} />
         </Link>
 
         <nav className="hdr-nav">
