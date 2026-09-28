@@ -1,11 +1,60 @@
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, Linkedin, ArrowRight, Check } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, ArrowRight, Check, AlertCircle } from "lucide-react";
 import { PageHero } from "../components/UI.jsx";
 import { Reveal, Magnetic } from "../components/Motion.jsx";
 import { EXPERTISE, CONTACT, HEAD_OFFICE } from "../data.js";
 
+// Enquiries POST to a Google Apps Script web app, which appends a row to the
+// enquiries spreadsheet and emails it on. Set VITE_ENQUIRY_ENDPOINT in Vercel
+// (see docs/enquiry-form-setup.md). Without it the form falls back to opening
+// the visitor's mail client, so an enquiry is never silently lost.
+const ENDPOINT = import.meta.env.VITE_ENQUIRY_ENDPOINT;
+
+const mailtoFallback = (data) => {
+  const body = [
+    `Name: ${data.name}`,
+    `Email: ${data.email}`,
+    `Organisation: ${data.org || "—"}`,
+    `About: ${data.topic || "—"}`,
+    "",
+    data.message,
+  ].join("\n");
+  window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(
+    `Website enquiry from ${data.name}`
+  )}&body=${encodeURIComponent(body)}`;
+};
+
 export default function Contact() {
-  const [sent, setSent] = useState(false);
+  // idle | sending | sent | error
+  const [state, setState] = useState("idle");
+  const sent = state === "sent";
+
+  const submit = async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    if (!ENDPOINT) {
+      mailtoFallback(data);
+      return;
+    }
+
+    setState("sending");
+    try {
+      // text/plain keeps this a CORS "simple request", so the browser sends it
+      // straight through — Apps Script cannot answer a preflight OPTIONS.
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ ...data, sentAt: new Date().toISOString() }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      setState("sent");
+      form.reset();
+    } catch {
+      setState("error");
+    }
+  };
 
   return (
     <>
@@ -18,53 +67,62 @@ export default function Contact() {
 
       <section className="sec contact-layout">
         <Reveal>
-          <form
-            className="form"
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSent(true);
-            }}
-          >
+          <form className="form" onSubmit={submit}>
             <div className="field">
               <label htmlFor="name">Name</label>
-              <input id="name" autoComplete="name" required />
+              <input id="name" name="name" autoComplete="name" required />
             </div>
             <div className="field">
               <label htmlFor="email">Email</label>
-              <input id="email" type="email" autoComplete="email" required />
+              <input id="email" name="email" type="email" autoComplete="email" required />
             </div>
             <div className="field">
               <label htmlFor="org">Organisation</label>
-              <input id="org" autoComplete="organization" />
+              <input id="org" name="org" autoComplete="organization" />
             </div>
             <div className="field">
               <label htmlFor="topic">What is this about?</label>
-              <select id="topic" defaultValue="">
+              <select id="topic" name="topic" defaultValue="">
                 <option value="" disabled>
                   Select an area
                 </option>
                 {EXPERTISE.map((e) => (
-                  <option key={e.slug} value={e.slug}>
+                  <option key={e.slug} value={e.title}>
                     {e.title}
                   </option>
                 ))}
-                <option value="other">Something else</option>
+                <option value="Something else">Something else</option>
               </select>
             </div>
             <div className="field full">
               <label htmlFor="msg">Your message</label>
-              <textarea id="msg" rows={6} required />
+              <textarea id="msg" name="message" rows={6} required />
             </div>
+            {/* bots fill hidden fields; people never see this one */}
+            <input
+              type="text"
+              name="company_website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="hp-field"
+            />
             <div className="form-foot">
               <Magnetic>
-                <button type="submit" className="btn-lg">
-                  Send enquiry <ArrowRight size={18} />
+                <button type="submit" className="btn-lg" disabled={state === "sending"}>
+                  {state === "sending" ? "Sending…" : "Send enquiry"} <ArrowRight size={18} />
                 </button>
               </Magnetic>
               {sent && (
                 <p className="sent" role="status">
-                  <Check size={16} /> Thanks — this demo form doesn't submit anywhere yet. Wire it to
-                  your inbox or CRM before launch.
+                  <Check size={16} /> Thank you — your enquiry has reached us. We usually reply
+                  within two working days.
+                </p>
+              )}
+              {state === "error" && (
+                <p className="sent error" role="alert">
+                  <AlertCircle size={16} /> That didn't go through. Please email us directly at{" "}
+                  <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.
                 </p>
               )}
             </div>

@@ -689,6 +689,11 @@
 .form-foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 26px; margin-top: 6px; }
 .sent { display: flex; align-items: flex-start; gap: 8px; max-width: 46ch; font-size: 14px; color: var(--muted); animation: inUp 0.6s var(--ease-out) both; }
 .sent svg { flex: none; margin-top: 2px; color: var(--accent); }
+.sent.error svg { color: #a6331f; }
+.sent a { text-decoration: underline; }
+/* honeypot: off-screen rather than display:none, which some bots skip */
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form button[disabled] { opacity: 0.6; cursor: progress; }
 
 .contact-side { display: grid; gap: 34px; padding-top: 6px; }
 .contact-side a, .contact-side p { display: flex; align-items: center; gap: 9px; margin-top: 10px; font-size: 16px; }
